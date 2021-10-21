@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from '../screens/Home/Home.screen'
+import Disclaimer from '../screens/Disclaimer/Disclaimer'
 import Profile from '../screens/Profile/Profile.screen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -45,6 +46,12 @@ const MainNavigation = () => {
           name="Home"
           options={{ headerShown: false }}
           component={Home}
+        />
+
+        <Stack.Screen
+          name="Disclaimer"
+          options={{ headerShown: false }}
+          component={Disclaimer}
         />
         <Stack.Screen
           name="VoiceRecorder"
