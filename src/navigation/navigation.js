@@ -41,11 +41,10 @@ const MainNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
-          name="HomeBase"
+          name="Home"
           options={{ headerShown: false }}
-          component={MyTabs}
+          component={Home}
         />
-        {/* add your another screen here using -> Stack.Screen */}
       </Stack.Navigator>
     </NavigationContainer>
   )
