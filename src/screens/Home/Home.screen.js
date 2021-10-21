@@ -55,11 +55,13 @@ const styles = StyleSheet.create({
   nameTxt: {
     color: '#9493AD',
     textTransform: 'uppercase',
-    fontSize: 18
+    fontSize: 18,
   },
   title: {
     color: '#49485F',
-    fontSize: 48
+    fontSize: 48,
+    fontFamily:"OPTIMA"
+    
   },
   tagline: {
     color: '#fff',
