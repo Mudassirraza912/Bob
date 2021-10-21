@@ -9,7 +9,7 @@ import {
   StyleSheet
 } from 'react-native'
 import { connect, useDispatch } from 'react-redux'
-
+import NewmorphButton from '../../components/NewmorphButton/index'
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
 
@@ -35,8 +35,17 @@ const Home = ({ navigation, user }) => {
               </Text>
             </View>
           </View>
+
+          <View style={styles.bottomBtn}>
+              <NewmorphButton backgroundColor="#B5C5DC" />
+          </View>
+
         </ImageBackground>
       </SafeAreaView>
+          {/* <View>
+            <NewmorphButton />
+          </View> */}
+
     </>
   )
 }
@@ -55,6 +64,10 @@ const styles = StyleSheet.create({
   tagline: {
     color: '#fff',
     fontSize: 22
+  },
+  bottomBtn: {
+    position: 'absolute',
+    bottom: 30
   }
 })
 
