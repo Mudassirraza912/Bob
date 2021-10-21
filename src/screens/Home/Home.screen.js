@@ -37,7 +37,7 @@ const Home = ({ navigation, user }) => {
           </View>
 
           <View style={styles.bottomBtn}>
-              <NewmorphButton backgroundColor="#B5C5DC" />
+              <NewmorphButton onPress={()=> navigation.navigate('BOB')} backgroundColor="#B5C5DC" />
           </View>
 
         </ImageBackground>
