@@ -5,13 +5,13 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 import Entypo from 'react-native-vector-icons/Entypo'
 
 
-const index = ({ 
-    onPress, 
+const index = ({
+    onPress,
     iconName = 'chevron-right',
-    iconColor= '#fff',
-    imgPath= require('../../assets/images/arrow-right.png'),
-    imgStyle={},
-    backgroundColor='#fff'
+    iconColor = '#fff',
+    imgPath = require('../../assets/images/arrow-right.png'),
+    imgStyle = {},
+    backgroundColor = '#fff'
 }) => {
     return (
 
@@ -32,7 +32,7 @@ const index = ({
                     alignItems: 'center',
                 }}
             >
-                <Image source={imgPath} style={[{height: 50, width: 25}, imgStyle]}/>
+                <Image source={imgPath} style={[{ height: 50, width: 25 }, imgStyle]} />
             </Neomorph>
         </TouchableOpacity>
     )
