@@ -4,61 +4,72 @@ import {
   View,
   Text,
   StatusBar,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground,
+  StyleSheet
 } from 'react-native'
-import styles from './Home.style'
-import Icon from 'react-native-vector-icons/Ionicons'
 import { connect, useDispatch } from 'react-redux'
-import { fetchDataUser } from '../../stores/actions/user.action'
-import NewMorph from '../../components/NewmorphButton'
-
+import NewmorphButton from '../../components/NewmorphButton/index'
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
-
-  function ListUser() {
-    return user.map(data => {
-      return (
-        <View
-          key={data.id}
-          style={{
-            borderBottomWidth: 1,
-            borderColor: '#eee',
-            padding: 1,
-            marginTop: 10
-          }}>
-          <Text style={{ fontSize: 15 }}>
-            {data.id}. {data.name}
-          </Text>
-        </View>
-      )
-    })
-  }
 
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
-      <SafeAreaView style={styles.SafeAreaView1} />
       <SafeAreaView style={styles.SafeAreaView2}>
-        <View style={styles.outerWrapper}>
+        <ImageBackground source={require('../../assets/images/earBack.png')} style={styles.imgBackground}>
+          <View style={{paddingVertical: 40, alignItems: 'center'}}>
+            <View>
+              <Text style={styles.nameTxt}>
+                Hey Daniel
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.title}>
+                I am BoB
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.tagline}>
+                And I am all ears
+              </Text>
+            </View>
+          </View>
 
+          <View style={styles.bottomBtn}>
+              <NewmorphButton backgroundColor="#B5C5DC" />
+          </View>
 
-          <NewMorph iconName='chevron-thin-right' onPress={() => {
-            alert('hloo')
-          }} />
-          {/* <Icon name={'ios-home'} size={100} color={'purple'} />
-          <View>
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              onPress={() => dispatch(fetchDataUser())}>
-              <Text style={styles.text}>Click here to show User data:</Text>
-            </TouchableOpacity>
-            <ListUser />
-          </View> */}
-        </View>
+        </ImageBackground>
       </SafeAreaView>
+          {/* <View>
+            <NewmorphButton />
+          </View> */}
+
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  imgBackground: {height: '100%', width: '100%', alignItems: 'center'},
+  nameTxt: {
+    color: '#9493AD',
+    textTransform: 'uppercase',
+    fontSize: 18
+  },
+  title: {
+    color: '#49485F',
+    fontSize: 48
+  },
+  tagline: {
+    color: '#fff',
+    fontSize: 22
+  },
+  bottomBtn: {
+    position: 'absolute',
+    bottom: 30
+  }
+})
 
 const mapStateToProps = state => {
   return {
