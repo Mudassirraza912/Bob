@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { VoiceRecorder } from '../screens/RecordAudio'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -44,6 +45,11 @@ const MainNavigation = () => {
           name="Home"
           options={{ headerShown: false }}
           component={Home}
+        />
+        <Stack.Screen
+          name="VoiceRecorder"
+          options={{ headerShown: false }}
+          component={VoiceRecorder}
         />
       </Stack.Navigator>
     </NavigationContainer>
