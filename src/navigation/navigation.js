@@ -8,6 +8,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { VoiceRecorder } from '../screens/RecordAudio'
+import HowDoYouFeel from '../screens/QAScreens/HowDoYouFeel'
+import TellUsMore from '../screens/QAScreens/TellUsMore'
+import RationalChallenge from '../screens/QAScreens/RationalChallenge'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -63,6 +66,21 @@ const MainNavigation = () => {
           name="VoiceRecorder"
           options={{ headerShown: false }}
           component={VoiceRecorder}
+        />
+        <Stack.Screen
+          name="HowDoYouFeel"
+          options={{ headerShown: false }}
+          component={HowDoYouFeel}
+        />
+        <Stack.Screen
+          name="TellUsMore"
+          options={{ headerShown: false }}
+          component={TellUsMore}
+        />
+        <Stack.Screen
+          name="RationalChallenge"
+          options={{ headerShown: false }}
+          component={RationalChallenge}
         />
       </Stack.Navigator>
     </NavigationContainer>
