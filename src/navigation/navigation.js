@@ -5,6 +5,7 @@ import Profile from '../screens/Profile/Profile.screen'
 import BOB from '../screens/BOB/BOB'
 import WhoIsBob from '../screens/WhoIsBob/WhoIsBob'
 import Record from '../screens/Record/Record'
+import Burn from '../screens/Burn/Burn'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -74,6 +75,11 @@ const MainNavigation = () => {
           name="Record"
           options={{ headerShown: false }}
           component={VoiceRecorder}
+        />
+        <Stack.Screen
+          name="Burn"
+          options={{ headerShown: false }}
+          component={Burn}
         />
       </Stack.Navigator>
     </NavigationContainer>

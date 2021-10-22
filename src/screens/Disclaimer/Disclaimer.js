@@ -50,7 +50,8 @@ const Disclaimer = ({ navigation, user }) => {
 
                     >
                         <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                            
+                            navigation.navigate('BOB')
+
                         }}
 
                             imgPath={require('../../assets/images/phone.png')}
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
     discliamerTextStyle: {
         color: '#6B6B8D',
         fontSize: 22,
-        fontFamily:"OPTIMA"
     },
     centerTextViewStyle: {
         marginVertical: height * 0.065,
