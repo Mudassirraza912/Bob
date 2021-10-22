@@ -3,6 +3,8 @@ import Home from '../screens/Home/Home.screen'
 import Disclaimer from '../screens/Disclaimer/Disclaimer'
 import Profile from '../screens/Profile/Profile.screen'
 import BOB from '../screens/BOB/BOB'
+import WhoIsBob from '../screens/WhoIsBob/WhoIsBob'
+import Record from '../screens/Record/Record'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -63,6 +65,16 @@ const MainNavigation = () => {
           name="VoiceRecorder"
           options={{ headerShown: false }}
           component={VoiceRecorder}
+        />
+        <Stack.Screen
+          name="WhoIsBob"
+          options={{ headerShown: false }}
+          component={WhoIsBob}
+        />
+        <Stack.Screen
+          name="Record"
+          options={{ headerShown: false }}
+          component={Record}
         />
       </Stack.Navigator>
     </NavigationContainer>
