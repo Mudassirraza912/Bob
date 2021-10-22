@@ -15,10 +15,10 @@ const Home = ({ navigation, user }) => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
+      <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
       <SafeAreaView style={styles.SafeAreaView2}>
         <ImageBackground source={require('../../assets/images/earBack.png')} style={styles.imgBackground}>
-          <View style={{paddingVertical: 40, alignItems: 'center'}}>
+          <View style={{ paddingVertical: 40, alignItems: 'center' }}>
             <View>
               <Text style={styles.nameTxt}>
                 Hey Daniel
@@ -37,12 +37,14 @@ const Home = ({ navigation, user }) => {
           </View>
 
           <View style={styles.bottomBtn}>
-              <NewmorphButton onPress={()=> navigation.navigate('BOB')} backgroundColor="#B5C5DC" />
+            <NewmorphButton backgroundColor="#B5C5DC" onPress={() => {
+              navigation.navigate('Disclaimer')
+            }} />
           </View>
 
         </ImageBackground>
       </SafeAreaView>
-          {/* <View>
+      {/* <View>
             <NewmorphButton />
           </View> */}
 
@@ -51,7 +53,7 @@ const Home = ({ navigation, user }) => {
 }
 
 const styles = StyleSheet.create({
-  imgBackground: {height: '100%', width: '100%', alignItems: 'center'},
+  imgBackground: { height: '100%', width: '100%', alignItems: 'center' },
   nameTxt: {
     color: '#9493AD',
     textTransform: 'uppercase',
