@@ -27,7 +27,7 @@ const Disclaimer = ({ navigation, user }) => {
                 style={styles.LinearGradient1}
                 colors={['#BFCCE0', '#F8F7F4']}>
                 <View style={styles.crossStyle}>
-                    <Feather name={'x'} size={50} color={'#A3A2BA'} />
+                    <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}
@@ -50,7 +50,8 @@ const Disclaimer = ({ navigation, user }) => {
 
                     >
                         <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                            navigation.navigate('HowDoYouFeel')
+                            navigation.navigate('BOB')
+
                         }}
 
                             imgPath={require('../../assets/images/phone.png')}
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
     discliamerTextStyle: {
         color: '#6B6B8D',
         fontSize: 22,
-        fontFamily:"OPTIMA"
     },
     centerTextViewStyle: {
         marginVertical: height * 0.065,
