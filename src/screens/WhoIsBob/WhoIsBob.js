@@ -17,9 +17,7 @@ import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 
-const Disclaimer = ({ navigation, user }) => {
-    const dispatch = useDispatch()
-
+const WhoIsBob = () => {
     return (
         <>
             <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
@@ -32,35 +30,37 @@ const Disclaimer = ({ navigation, user }) => {
                 <LinearGradient
                     style={styles.LinearGradient2}
                     colors={['#F8F7F4', '#BFCCE0']}>
+                    <View style={styles.textMainViewStyle}>
 
-                    <Text style={styles.discliamerTextStyle}>Disclaimer</Text>
+                        <Text style={styles.text1Style}>
+                            BoB, a virtual companion, is ready to listen to you without judgment, anywhere, any time.  It is programmed to, in the moment, give you access to quick tools to help you calibrate your emotions when you are triggered.
 
-                    <View style={styles.centerTextViewStyle}>
-                        <Text style={styles.centerTextStyle}>BoB is your virtual companion in most situations, but in case
-                            you are experiencing extreme trauma, you are in danger, or you are at risk of self-harm, please tap on
-                            the phone below to contact your local emergency hotline.
+                        </Text>
+                        <Text style={styles.text1Style}>
+                            In this way you will get accustomed to turning your reactions to responses.
+
+                        </Text>
+                        <Text style={styles.text1Style}>
+                            It will also allow you to reflect on your triggers, thoughts, emotions, and responses.
+
+
+                        </Text>
+                        <Text style={styles.text1Style}>
+
+                            Therefore, ensuring that you will proactively manage them in the
+                            future. Bob also provides you with a safe environment to vent; by recording or typing your destructive thoughts and emotions, and eventually discarding them, therefore allowing you to let them go with gratitude.
+
+
+                        </Text>
+                        <Text style={styles.text1Style}>
+                            BoB, should NOT be used in case
+                            of emergency or self-harm, in this event, please contact your local emergency hotline.
+
+
+
                         </Text>
                     </View>
 
-
-                    <View
-
-                        style={styles.buttonViewStyle}
-
-
-                    >
-                        <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                            navigation.navigate('Record')
-                        }}
-
-                            imgPath={require('../../assets/images/phone.png')}
-                            imgStyle={{
-                                height: 40,
-                                width: 40
-
-                            }}
-                        />
-                    </View>
 
                 </LinearGradient>
 
@@ -87,23 +87,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    discliamerTextStyle: {
-        color: '#6B6B8D',
-        fontSize: 22,
+    textMainViewStyle: {
+        width: '85%',
+
     },
-    centerTextViewStyle: {
-        marginVertical: height * 0.065,
-        width: '85%'
-    },
-    centerTextStyle: {
-        color: '#6B6B8D',
-        fontSize: 18,
+    text1Style: {
         textAlign: 'center',
-        lineHeight: 25
+        lineHeight: 18,
+        marginBottom: 15,
+        color: '#706F93'
     },
-    buttonViewStyle: {
-        marginTop: height * 0.03
-    }
+
+
 
 })
 
@@ -113,4 +108,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Disclaimer)
+export default connect(mapStateToProps, null)(WhoIsBob)
+

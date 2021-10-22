@@ -26,8 +26,8 @@ const index = ({
                     shadowColor: backgroundColor,
                     borderRadius: 50,
                     backgroundColor: backgroundColor,
-                    width: 67.94,
-                    height: 68.26,
+                    width: 80,
+                    height: 80,
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
