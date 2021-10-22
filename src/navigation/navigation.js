@@ -10,7 +10,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { VoiceRecorder } from '../screens/RecordAudio'
+import VoiceRecorder  from '../screens/RecordAudio'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -45,7 +45,7 @@ function MyTabs() {
 const MainNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
         <Stack.Screen
           name="Home"
           options={{ headerShown: false }}
@@ -56,7 +56,6 @@ const MainNavigation = () => {
           options={{ headerShown: false }}
           component={BOB}
         />
-
         <Stack.Screen
           name="Disclaimer"
           options={{ headerShown: false }}
@@ -75,7 +74,7 @@ const MainNavigation = () => {
         <Stack.Screen
           name="Record"
           options={{ headerShown: false }}
-          component={Record}
+          component={VoiceRecorder}
         />
         <Stack.Screen
           name="Burn"

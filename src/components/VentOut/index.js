@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 export default function VentOut({
     title = "VENT IT ALL OUT",
@@ -10,7 +10,7 @@ export default function VentOut({
     imgWidth = {}
 }) {
     return (
-        <View style={{paddingHorizontal:20}}>
+        <TouchableOpacity activeOpacity={.8} onPress={onPress} style={{paddingHorizontal:20}}>
             <View style={{flexDirection:"row"}}>
                 <View style={{flex:1}}>
                     <Image source={imgIcon} style={[{height: 60, width: 30},imgWidth]  } />
@@ -24,7 +24,7 @@ export default function VentOut({
             </View>
                 <Text style={{color:"#575672",paddingVertical:10}}>{decription}</Text>
                 <View style={styles.border}></View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
