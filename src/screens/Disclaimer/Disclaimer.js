@@ -27,7 +27,7 @@ const Disclaimer = ({ navigation, user }) => {
                 style={styles.LinearGradient1}
                 colors={['#BFCCE0', '#F8F7F4']}>
                 <View style={styles.crossStyle}>
-                    <Feather name={'x'} size={50} color={'#A3A2BA'} />
+                    <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}
