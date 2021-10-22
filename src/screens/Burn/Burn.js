@@ -76,8 +76,9 @@ const Burn = () => {
                                 style={styles.buttonViewStyle}
 
                             >
+                                <WhiteButton title="Burn" textStyle={{color:"#E39684"}}/>
 
-                                <TouchableOpacity
+                                {/* <TouchableOpacity
 
                                     activeOpacity={0.7}
                                     style={{
@@ -96,7 +97,7 @@ const Burn = () => {
                                     }}>
                                         Burn
                                     </Text>
-                                </TouchableOpacity>
+                                </TouchableOpacity> */}
 
 
                             </View>
