@@ -2,6 +2,7 @@ import React from 'react'
 import Home from '../screens/Home/Home.screen'
 import Disclaimer from '../screens/Disclaimer/Disclaimer'
 import Profile from '../screens/Profile/Profile.screen'
+import BOB from '../screens/BOB/BOB'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -46,6 +47,11 @@ const MainNavigation = () => {
           name="Home"
           options={{ headerShown: false }}
           component={Home}
+        />
+        <Stack.Screen
+          name="BOB"
+          options={{ headerShown: false }}
+          component={BOB}
         />
 
         <Stack.Screen
