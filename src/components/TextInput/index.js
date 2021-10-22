@@ -17,7 +17,8 @@ export default function TextInputView({
   <View>
             <TextInput
             style={styles.textArea}
-            underlineColorAndroid="#fff"            
+            underlineColorAndroid="#fff"
+            maxLength={33}          
             />
             </View>
 
@@ -27,21 +28,11 @@ export default function TextInputView({
    
 
 const styles = StyleSheet.create({
-textAreaContainer:{
-        backgroundColor:"red",
-        // height:150,
-        // width:250, 
-        // alignItems:"center",
-        // justifyContent:"flex-start"      
-    },
-textArea:{
-    // height:20,
-        width:230,
-        color:"#fff",
-        backgroundColor:"red",
-        // textAlignVertical: 'top',
-        // borderBottomColor:"#fff",
-        // borderBottomWidth:1,
 
+textArea:{
+    height:38,
+        width:260,
+        color:"#6B6B8D",
+        fontSize:12
      },
 })

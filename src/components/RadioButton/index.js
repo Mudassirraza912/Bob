@@ -21,11 +21,11 @@ export default function RadioButton({
       };
     return (
         <View style={{}}>
-            <TouchableOpacity onPress={() => handleOnFocus()} activeOpacity={0.88} style={[onFocus ? styles.deFocusButton : styles.onFocusButton, style]}>
+            <TouchableOpacity onPress={() => handleOnFocus()} activeOpacity={0.9} style={[onFocus ? styles.deFocusButton : styles.onFocusButton, style]}>
                 <Text style={{color:"#B5C5DC", fontSize:16}}>{title}</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => handleDeFocus()} activeOpacity={0.88} style={[deFocus ? styles.deFocusButton : styles.onFocusButton, style2]}>
+            <TouchableOpacity onPress={() => handleDeFocus()} activeOpacity={0.9} style={[deFocus ? styles.deFocusButton : styles.onFocusButton, style2]}>
                 <Text style={{color:"#B5C5DC", fontSize:16}}>{title2}</Text>
             </TouchableOpacity>
             </View>

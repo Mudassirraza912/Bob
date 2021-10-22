@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import TextInputView from '../../components/TextInput/index'
+import WhiteButton from '../../components/WhiteButton/index'
 
 import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
@@ -44,8 +45,17 @@ const RationalChallenge = ({ navigation, user }) => {
             }}>
                 <Text style={styles.titleTextStyle}>The Rational Challenge</Text>
                 <Text style={styles.QuestionTextStyle}>1. How are you feeling {'\n'}right now?</Text>
-
-            <TextInputView/>
+            <View style={{height:150,
+                    width:260,
+                    alignItems:"center",
+                    justifyContent:"center" 
+                    }}>
+                        <TextInputView/>
+                        <TextInputView/>
+                        <TextInputView/>
+                        <TextInputView/>
+              </View>
+            
             {/* <TextInputView/>
             <TextInputView/> */}
 

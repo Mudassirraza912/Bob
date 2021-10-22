@@ -24,11 +24,11 @@ const Home = ({ navigation, user }) => {
                 Hey Daniel
               </Text>
             </View>
-            <View>
+            <TouchableOpacity activeOpacity={0.8} onPress={() => {navigation.navigate('HowDoYouFeel')}}>
               <Text style={styles.title}>
                 I am BoB
               </Text>
-            </View>
+            </TouchableOpacity>
             <View>
               <Text style={styles.tagline}>
                 And I am all ears

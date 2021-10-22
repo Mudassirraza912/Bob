@@ -67,7 +67,7 @@ const MainNavigation = () => {
         <Stack.Screen
           name="VoiceRecorder"
           options={{ headerShown: false }}
-          component={VoiceRecorder}
+          component={Record}
         />
         <Stack.Screen
           name="HowDoYouFeel"
@@ -83,6 +83,8 @@ const MainNavigation = () => {
           name="RationalChallenge"
           options={{ headerShown: false }}
           component={RationalChallenge}
+          />
+        <Stack.Screen
           name="WhoIsBob"
           options={{ headerShown: false }}
           component={WhoIsBob}
@@ -90,7 +92,7 @@ const MainNavigation = () => {
         <Stack.Screen
           name="Record"
           options={{ headerShown: false }}
-          component={VoiceRecorder}
+          component={Record}
         />
         <Stack.Screen
           name="Burn"
