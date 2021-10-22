@@ -19,7 +19,7 @@ const BOB = ({ navigation, user }) => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
                 <View style={{ marginBottom: 20 }}>
-                    <VentOut />
+                    <VentOut onPress={() => navigation.navigate('Record')} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
@@ -31,6 +31,13 @@ const BOB = ({ navigation, user }) => {
                         title={'ASK THE EXPERT'}
                         decription={'Getting a professional point of view'}
                         imgIcon={require('../../assets/images/Path700.png')} />
+                </View>
+                <View style={{ marginBottom: 20 }}>
+                    <VentOut
+                        onPress={() => navigation.navigate('WhoIsBob')}
+                        title={'WHO IS BOB'}
+                        decription={''}
+                        />
                 </View>
             </ScrollView>
             <View style={styles.foter}>

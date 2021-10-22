@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     SafeAreaView,
     View,
@@ -17,13 +17,21 @@ import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 
-const Record = () => {
+const Record = ({
+    onRecord = () => { },
+    onPlay = () => { },
+    onStop = () => { },
+    isRecording = false,
+    isRecordingComplete = false
+}) => {
     const [recordingStart, setRecordingStart] = useState(false)
 
-
+    // useEffect(() => {
+    //     setRecordingStart(isRecordingComplete)
+    // }, [isRecordingComplete])
 
     const startRecording = () => {
-        setRecordingStart(true)
+        // setRecordingStart(true)
     }
 
     return (
@@ -89,16 +97,22 @@ const Record = () => {
                         }}>
 
                             <NewmorphButton backgroundColor={recordingStart ? '#E6C5C0' : '#C7D3E3'} onPress={() => {
-
-                                startRecording()
+                                console.log("isRecording", isRecording, 'isRecordingComplete', isRecordingComplete)
+                                if(!isRecording) {
+                                    onRecord()
+                                }else if (isRecording && !isRecordingComplete) {
+                                    onStop()
+                                }else {
+                                    onPlay()
+                                }
                             }}
 
-                                imgPath={recordingStart ? require('../../assets/images/play.png') : require('../../assets/images/circle.png')}
-                                imgStyle={{
+                                imgPath={recordingStart ? require('../../assets/images/play.png') : (isRecording ? require('../../assets/images/play.png') : require('../../assets/images/mike2.png'))}
+                                imgStyle={isRecording ? {
                                     height: 40,
                                     width: 40
 
-                                }}
+                                } : { width: 35, height: 56 }}
                             />
 
                         </View>

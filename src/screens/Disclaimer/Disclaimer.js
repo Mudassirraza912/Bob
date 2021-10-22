@@ -50,7 +50,7 @@ const Disclaimer = ({ navigation, user }) => {
 
                     >
                         <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                            navigation.navigate('Record')
+                            
                         }}
 
                             imgPath={require('../../assets/images/phone.png')}
