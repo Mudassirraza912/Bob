@@ -475,12 +475,10 @@ class VoiceRecorder extends Component<any, State> {
     if (!playWidth) {
       playWidth = 0;
     }
-    const {isRecording, isRecordingComplete, isPlaying} = this.state
+    const {isRecording, isRecordingComplete, isPlaying, duration, playTime, recordTime, recordSecs} = this.state
+    console.log('duration, playTime, recordTime, recordSecs', duration, playTime, recordTime, recordSecs)
     return (
       <SafeAreaView style={styles.container}>
-        {/* <Record onRecord={this.onStartRecord} onStop={this.onStopRecord} onPlay={this.onStartPlay} isRecording={this.state.isRecording} isRecordingComplete={this.state.isRecordingComplete}/> */}
-        
-
         <>
             <StatusBar barStyle="dark-content" backgroundColor={isRecordingComplete ? '#E6C5C0' : '#BFCCE0'} />
             <LinearGradient
@@ -557,7 +555,6 @@ class VoiceRecorder extends Component<any, State> {
                                 }
 
                             }}
-
                                 imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
                                 imgStyle={isRecording ? {
                                     height: 40,
@@ -565,114 +562,11 @@ class VoiceRecorder extends Component<any, State> {
 
                                 } : { width: 35, height: 56 }}
                             />
-
                         </View>
-
                     </View>
-
-
-
                 </LinearGradient>
-
             </LinearGradient>
         </>
-
-        
-        
-        {/* <Text style={styles.titleTxt}>Audio Recorder Player</Text>
-        <Text style={styles.txtRecordCounter}>{this.state.recordTime}</Text>
-        <View style={styles.viewRecorder}>
-          <View style={styles.recordBtnWrapper}>
-            <Button
-              style={styles.btn}
-              onPress={this.onStartRecord}
-              textStyle={styles.txt}>
-              Record
-            </Button>
-            <Button
-              style={[
-                styles.btn,
-                {
-                  marginLeft: 12,
-                },
-              ]}
-              onPress={this.onPauseRecord}
-              textStyle={styles.txt}>
-              Pause
-            </Button>
-            <Button
-              style={[
-                styles.btn,
-                {
-                  marginLeft: 12,
-                },
-              ]}
-              onPress={this.onResumeRecord}
-              textStyle={styles.txt}>
-              Resume
-            </Button>
-            <Button
-              style={[styles.btn, {marginLeft: 12}]}
-              onPress={this.onStopRecord}
-              textStyle={styles.txt}>
-              Stop
-            </Button>
-          </View>
-        </View>
-        <View style={styles.viewPlayer}>
-          <TouchableOpacity
-            style={styles.viewBarWrapper}
-            onPress={this.onStatusPress}>
-            <View style={styles.viewBar}>
-              <View style={[styles.viewBarPlay, {width: playWidth}]} />
-            </View>
-          </TouchableOpacity>
-          <Text style={styles.txtCounter}>
-            {this.state.playTime} / {this.state.duration}
-          </Text>
-          <View style={styles.playBtnWrapper}>
-            <Button
-              style={styles.btn}
-              onPress={this.onStartPlay}
-              textStyle={styles.txt}>
-              Play
-            </Button>
-            <Button
-              style={[
-                styles.btn,
-                {
-                  marginLeft: 12,
-                },
-              ]}
-              onPress={this.onPausePlay}
-              textStyle={styles.txt}>
-              Pause
-            </Button>
-            <Button
-              style={[
-                styles.btn,
-                {
-                  marginLeft: 12,
-                },
-              ]}
-              onPress={this.onResumePlay}
-              textStyle={styles.txt}>
-              Resume
-            </Button>
-            <Button
-              style={[
-                styles.btn,
-                {
-                  marginLeft: 12,
-                },
-              ]}
-              onPress={this.onStopPlay}
-              textStyle={styles.txt}>
-              Stop
-            </Button>
-          </View>
-        </View> */}
-
       </SafeAreaView>
     );
   }
@@ -764,17 +658,6 @@ class VoiceRecorder extends Component<any, State> {
     console.log(`uri: ${uri}`);
   };
 
-  private onPauseRecord = async () => {
-    try {
-      await this.audioRecorderPlayer.pauseRecorder();
-    } catch (err) {
-      console.log('pauseRecord', err);
-    }
-  };
-
-  private onResumeRecord = async () => {
-    await this.audioRecorderPlayer.resumePlayer()
-  };
 
   private onStopRecord = async () => {
     const result = await this.audioRecorderPlayer.stopRecorder();
@@ -800,6 +683,11 @@ class VoiceRecorder extends Component<any, State> {
       isPlaying: !this.state.isPlaying
     })
     this.audioRecorderPlayer.addPlayBackListener((e: PlayBackType) => {
+      if(this.audioRecorderPlayer.mmssss(Math.floor(e.duration)) == this.audioRecorderPlayer.mmssss(Math.floor(e.currentPosition))) {
+        this.setState({
+          isPlaying: false
+        })
+      }
       this.setState({
         currentPositionSec: e.currentPosition,
         currentDurationSec: e.duration,

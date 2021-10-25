@@ -12,32 +12,27 @@ import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 import VentOut from '../../components/VentOut/index'
 import LinearGradient from 'react-native-linear-gradient'
-const BOB = ({ navigation, user }) => {
+const VentItScreens = ({ navigation, user }) => {
     const dispatch = useDispatch()
     return (
         <LinearGradient style={styles.container} colors={['#D1D9E5', '#8B97B4']} >
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
                 <View style={{ marginBottom: 20 }}>
-                    <VentOut onPress={() => navigation.navigate('VentItScreens')} />
-                </View>
-                <View style={{ marginBottom: 20 }}>
                     <VentOut
-                        decription={'Sample tools to calm down extreme emotions triggered in the moment'}
-                        imgIcon={require('../../assets/images/Group333.png')} title={'TRIGGERS'} />
+                        imgStyle={{ width: 28, height: 46, tintColor: '#fff', top: 10}}
+                        onPress={() => navigation.navigate('Record')} 
+                        decription={'Speaking out loud creates clarity and space to find solutions'}
+                        imgIcon={require('../../assets/images/mike.png')} 
+                        title={'RECORD YOUR THOUGHTS'} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
-                    <VentOut imgStyle={{ height: 18, width: 55, marginTop: 20 }}
-                        title={'ASK THE EXPERT'}
-                        decription={'Getting a professional point of view'}
-                        imgIcon={require('../../assets/images/Path700.png')} />
-                </View>
-                <View style={{ marginBottom: 20 }}>
-                    <VentOut
-                        onPress={() => navigation.navigate('WhoIsBob')}
-                        title={'WHO IS BOB'}
-                        decription={''}
-                        />
+                    <VentOut 
+                        imgStyle={{ height: 38, width: 28, marginTop: 20 }}
+                        onPress={() => navigation.navigate('HowDoYouFeel')} 
+                        title={'WRITE YOUR THOUGHTS'}
+                        decription={'Write your thoughts to dejunk your mind and create space to find solutions.'}
+                        imgIcon={require('../../assets/images/write.png')} />
                 </View>
             </ScrollView>
             <View style={styles.foter}>
@@ -72,4 +67,4 @@ const styles = StyleSheet.create({
 
 
 
-export default (BOB)
+export default VentItScreens
