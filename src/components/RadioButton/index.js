@@ -5,19 +5,21 @@ export default function RadioButton({
 
     title = "I need more",
     title2 = "I'am way better",
-    onPress = () => { },
+    onPress = (e) => { },
     style={},
     style2={},
 }) {
     const [onFocus, setOnFocus] = useState(true);
     const [deFocus, setDeFocus] = useState(true);
     const handleOnFocus = () => {
-        setOnFocus(0);
-        setDeFocus(1);
+        setOnFocus(false);
+        setDeFocus(true);
+        onPress(0)
       };
       const handleDeFocus = () => {
-        setOnFocus(1);
-        setDeFocus(0);
+        setOnFocus(true);
+        setDeFocus(false);
+        onPress(1)
       };
     return (
         <View style={{}}>

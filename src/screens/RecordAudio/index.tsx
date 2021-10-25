@@ -417,7 +417,7 @@ const styles: any = StyleSheet.create({
     alignItems: 'flex-end'
   },
   LinearGradient2: {
-    width: '80%', height: height * 0.81, borderRadius: 150, backgroundColor: 'transparent',
+    width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
     overflow: 'hidden',
     alignItems: 'center',
     // justifyContent: 'center'
@@ -688,6 +688,7 @@ class VoiceRecorder extends Component<any, State> {
         this.setState({
           isPlaying: false
         })
+        this.props.navigation.navigate("HowDoYouFeel")
       }
       this.setState({
         currentPositionSec: e.currentPosition,

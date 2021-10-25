@@ -27,7 +27,7 @@ const RecommendProfessional = ({ navigation, user }) => {
         style={styles.LinearGradient1}
         colors={['#BFCCE0', '#F8F7F4']}>
         <View style={styles.crossStyle}>
-          <Feather name={'x'} size={50} color={'#A3A2BA'} />
+          <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
@@ -48,7 +48,7 @@ const RecommendProfessional = ({ navigation, user }) => {
               <NewmorphButton
                 backgroundColor="#C7D3E3"
                 onPress={() => {
-                  navigation.navigate('WhatsOnYourMind')
+                  navigation.navigate('BOB')
                 }}
               />
             </View>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: 150,
+    borderRadius: height/2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',

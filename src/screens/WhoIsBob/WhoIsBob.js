@@ -82,21 +82,17 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%',
-        height: height * 0.81,
-        borderRadius: 150,
-        backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height / 2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center'
     },
     textMainViewStyle: {
         width: '85%',
-
     },
     text1Style: {
         textAlign: 'center',
-        lineHeight: 18,
+        // lineHeight: 10,
         marginBottom: 15,
         color: '#706F93'
     },
