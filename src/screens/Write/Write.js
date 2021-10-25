@@ -18,6 +18,7 @@ import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
+import TextInputView from '../../components/TextInput';
 
 const Write = ({ navigation, user }) => {
     return (
@@ -30,68 +31,42 @@ const Write = ({ navigation, user }) => {
 
             >
                 <View style={styles.crossStyle}>
-                    <Feather name={'x'} size={50} color={'#A3A2BA'} />
+                    <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}
                     colors={['#F8F7F4', '#BFCCE0']}>
-
-
                     <View style={{
                         // justifyContent: 'space-between'
-
                     }}>
                         <View
-
                             style={styles.imageTextViewStyle}
-
                         >
                             <Image source={require('../../assets/images/pencil2.png')} style={{ width: 42, height: 57 }} />
                             <Text
                                 style={styles.textStyle}
-
                             >
                                 What is on your
                             </Text>
                             <Text
                                 style={styles.textStyle}
-
                             >
                                 mind Danial
                             </Text>
-
-
-
                         </View>
-
-
                         <View
                             style={styles.centerImageViewStyle}
-
                         >
-
-
-
+                            <TextInputView />
                         </View>
                         <View
                             style={styles.buttonViewStyle}
-
                         >
                             <WhiteButton title="Completed" textStyle={{ color: "#B5C5DC" }} onPress={() => {
                                 navigation.navigate('Burn')
                             }} />
-
-
-
-
                         </View>
-
-
-
                     </View>
-
-
-
                 </LinearGradient>
 
             </LinearGradient>
@@ -110,7 +85,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%', height: height * 0.81, borderRadius: 150, backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         // justifyContent: 'center'

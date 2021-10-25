@@ -29,7 +29,7 @@ const VentItScreens = ({ navigation, user }) => {
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
                         imgStyle={{ height: 38, width: 28, marginTop: 20 }}
-                        onPress={() => navigation.navigate('HowDoYouFeel')}
+                        onPress={() => navigation.navigate('Write')}
                         title={'WRITE YOUR THOUGHTS'}
                         decription={'Write your thoughts to dejunk your mind and create space to find solutions.'}
                         imgIcon={require('../../assets/images/write.png')} />
