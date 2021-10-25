@@ -7,18 +7,18 @@ export default function VentOut({
     onPress = () => { },
     imgIcon = require('../../assets/images/Group331.png'),
     imgArrow = require('../../assets/images/arrow-right.png'),
-    imgWidth = {}
+    imgStyle = {}
 }) {
     return (
         <TouchableOpacity activeOpacity={.8} onPress={onPress} style={{paddingHorizontal:20}}>
             <View style={{flexDirection:"row"}}>
                 <View style={{flex:1}}>
-                    <Image source={imgIcon} style={[{height: 60, width: 30},imgWidth]  } />
+                    <Image source={imgIcon} style={[{height: 60, width: 30}, imgStyle]  } />
                 </View>
-                <View style={{flex:2}}>
-                    <Text style={{ fontSize: 24, color: "#FFFFFF",paddingLeft:4 }}>{title}</Text>
+                <View style={{flex:3}}>
+                    <Text style={{ fontSize: 24, color: "#FFFFFF",paddingLeft:4}}>{title}</Text>
                 </View>
-                <View style={{flex:1.8,alignItems:"flex-end",justifyContent:"center"}}>
+                <View style={{flex:1.8, alignItems:"flex-end",justifyContent:"center"}}>
                     <Image source={imgArrow} style={{ height: 22, width: 22 }} />
                 </View>
             </View>
