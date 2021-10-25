@@ -14,8 +14,15 @@ import VoiceRecorder from '../screens/RecordAudio'
 import HowDoYouFeel from '../screens/QAScreens/HowDoYouFeel'
 import TellUsMore from '../screens/QAScreens/TellUsMore'
 import RationalChallenge from '../screens/QAScreens/RationalChallenge'
+import RationalChallenge2 from '../screens/QAScreens/RationalChallenge2'
+import RationalChallenge3 from '../screens/QAScreens/RationalChallenge3'
+import RationalChallenge4 from '../screens/QAScreens/RationalChallenge4'
+import RationalChallenge5 from '../screens/QAScreens/RationalChallenge5'
+import RationalChallenge6 from '../screens/QAScreens/RationalChallenge6'
 import VentItScreens from '../screens/BOB/VentItScreen'
 import Write from '../screens/Write/Write'
+import RecommendProfessional from '../screens/QAScreens/RecommendProfessional'
+import whatsOnYourMind from '../screens/QAScreens/whatsOnYourMind'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -85,6 +92,41 @@ const MainNavigation = () => {
           name="RationalChallenge"
           options={{ headerShown: false }}
           component={RationalChallenge}
+        />
+            <Stack.Screen
+          name="RationalChallenge2"
+          options={{ headerShown: false }}
+          component={RationalChallenge2}
+        />
+            <Stack.Screen
+          name="RationalChallenge3"
+          options={{ headerShown: false }}
+          component={RationalChallenge3}
+        />
+            <Stack.Screen
+          name="RationalChallenge4"
+          options={{ headerShown: false }}
+          component={RationalChallenge4}
+        />
+            <Stack.Screen
+          name="RationalChallenge5"
+          options={{ headerShown: false }}
+          component={RationalChallenge5}
+        />
+        <Stack.Screen
+          name="RationalChallenge6"
+          options={{ headerShown: false }}
+          component={RationalChallenge6}
+        />
+        <Stack.Screen
+          name="RecommendProfessional"
+          options={{ headerShown: false }}
+          component={RecommendProfessional}
+        />
+        <Stack.Screen
+          name="WhatsOnYourMind"
+          options={{ headerShown: false }}
+          component={whatsOnYourMind}
         />
         <Stack.Screen
           name="WhoIsBob"
