@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   View,
   Text,
   StatusBar,
   TouchableOpacity,
-  ImageBackground,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  Alert
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import RadioButton from '../../components/RadioButton/index'
@@ -19,6 +19,7 @@ import Feather from 'react-native-vector-icons/Feather'
 
 const TellUsMore = ({ navigation, user }) => {
   const dispatch = useDispatch()
+  const [enabled, setEnabled] = useState(null)
 
   return (
     <>
@@ -27,7 +28,7 @@ const TellUsMore = ({ navigation, user }) => {
         style={styles.LinearGradient1}
         colors={['#BFCCE0', '#F8F7F4']}>
         <View style={styles.crossStyle}>
-          <Feather name={'x'} size={50} color={'#A3A2BA'} />
+          <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
@@ -41,13 +42,21 @@ const TellUsMore = ({ navigation, user }) => {
             }}>
             <Text style={styles.titleTextStyle}>Tell us more</Text>
             <View>
-              <RadioButton title="I would like to talk to someone" title2="Let's think together" style={{width:250}} style2={{width:250}}/>
+              <RadioButton onPress={(e) => setEnabled(e)} title="I would like to talk to someone" title2="Let's think together" style={{width:250}} style2={{width:250}}/>
             </View>
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
                 onPress={() => {
-                  navigation.navigate('RationalChallenge')
+                  if(enabled == null) {
+                   Alert.alert("Alert", "Please Select one!")
+                  }else {
+                    if(enabled == 0) {
+                      Alert.alert("Featured Coming soon")
+                    }else {
+                      navigation.navigate('RationalChallenge')
+                    }
+                  }
                 }}
               />
             </View>
@@ -72,7 +81,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: 150,
+    borderRadius: height/2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',

@@ -18,7 +18,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
 
-const Burn = () => {
+const Burn = ({navigation}) => {
 
 
 
@@ -28,25 +28,18 @@ const Burn = () => {
             <LinearGradient
                 style={styles.LinearGradient1}
                 colors={['#E6C5C0', '#EAE8EA']}
-
-
             >
                 <View style={styles.crossStyle}>
-                    <Feather name={'x'} size={50} color={'#A3A2BA'} />
+                    <Feather onPress={() => this.props.navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}
                     colors={['#EAE8EA', '#E6C5C0']}>
-
-
                     <View style={{
                         // justifyContent: 'space-between'
-
                     }}>
                         <View
-
                             style={styles.imageTextViewStyle}
-
                         >
                             <Image source={require('../../assets/images/pencil.png')} style={{ width: 42, height: 57 }} />
                             <Text
@@ -55,62 +48,27 @@ const Burn = () => {
                             >
                                 Burn your Note
                             </Text>
-
-
-
                         </View>
-
                         <ImageBackground source={require('../../assets/images/flame.png')} style={{
                             width: 270,
                             height: 404,
-
                         }}>
                             <View
                                 style={styles.centerImageViewStyle}
-
                             >
                                 <Image source={require('../../assets/images/book.png')} style={{ width: 95, height: 86 }} />
-
-
                             </View>
                             <View
                                 style={styles.buttonViewStyle}
 
                             >
-                                <WhiteButton title="Burn" textStyle={{ color: "#E39684" }} />
-
-                                {/* <TouchableOpacity
-
-                                    activeOpacity={0.7}
-                                    style={{
-                                        width: '50%',
-                                        alignSelf: 'center',
-                                        height: 24,
-                                        borderRadius: 12,
-                                        backgroundColor: '#fff',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }}>
-                                    <Text style={{
-                                        color: '#E39684',
-                                        fontSize: 16,
-                                        fontFamily: 'Optima'
-                                    }}>
-                                        Burn
-                                    </Text>
-                                </TouchableOpacity> */}
-
+                                <WhiteButton onPress={() => navigation.navigate("HowDoYouFeel")} title="Burn" textStyle={{ color: "#E39684" }} />
 
                             </View>
                         </ImageBackground>
 
-
                     </View>
-
-
-
                 </LinearGradient>
-
             </LinearGradient>
         </>
     )
@@ -127,7 +85,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%', height: height * 0.81, borderRadius: 150, backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         // justifyContent: 'center'
