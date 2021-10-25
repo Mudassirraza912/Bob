@@ -7,7 +7,8 @@ export default function VentOut({
     onPress = () => { },
     imgIcon = require('../../assets/images/Group331.png'),
     imgArrow = require('../../assets/images/arrow-right.png'),
-    imgStyle = {}
+    imgStyle = {},
+    borderStyle={}
 }) {
     return (
         <TouchableOpacity activeOpacity={.8} onPress={onPress} style={{paddingHorizontal:20}}>
@@ -19,11 +20,11 @@ export default function VentOut({
                     <Text style={{ fontSize: 24, color: "#FFFFFF",paddingLeft:4}}>{title}</Text>
                 </View>
                 <View style={{flex:1.8, alignItems:"flex-end",justifyContent:"center"}}>
-                    <Image source={imgArrow} style={{ height: 22, width: 22 }} />
+                    <Image source={imgArrow} style={{ height: 30, width: 15, bottom: 13 }} />
                 </View>
             </View>
                 <Text style={{color:"#575672",paddingVertical:10}}>{decription}</Text>
-                <View style={styles.border}></View>
+                <View style={[styles.border, borderStyle]}></View>
         </TouchableOpacity>
     )
 }
@@ -31,6 +32,7 @@ export default function VentOut({
 const styles = StyleSheet.create({
     border:{
         backgroundColor:"#D2DAE6",
-        width:"100%",height:1
+        width:"100%",
+        height:1
     }
 })

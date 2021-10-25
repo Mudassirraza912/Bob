@@ -27,17 +27,19 @@ const BOB = ({ navigation, user }) => {
                         imgIcon={require('../../assets/images/Group333.png')} title={'TRIGGERS'} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
-                    <VentOut imgStyle={{ height: 18, width: 55, marginTop: 20 }}
+                    <VentOut imgStyle={{ height: 15, width: 45, marginTop: 20 }}
                         title={'ASK THE EXPERT'}
                         decription={'Getting a professional point of view'}
                         imgIcon={require('../../assets/images/Path700.png')} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
+                        borderStyle={{height: 0}}
+                        imgIcon={""}
                         onPress={() => navigation.navigate('WhoIsBob')}
                         title={'WHO IS BOB'}
                         decription={''}
-                        />
+                    />
                 </View>
             </ScrollView>
             <View style={styles.foter}>

@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%', height: height * 0.81, borderRadius: 150, backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center'
@@ -91,10 +91,12 @@ const styles = StyleSheet.create({
     discliamerTextStyle: {
         color: '#6B6B8D',
         fontSize: 22,
+        fontFamily: 'OPTIMA'
     },
     centerTextViewStyle: {
         marginVertical: height * 0.065,
-        width: '85%'
+        width: '85%',
+        // fontFamily: 'Optima'
     },
     centerTextStyle: {
         color: '#6B6B8D',

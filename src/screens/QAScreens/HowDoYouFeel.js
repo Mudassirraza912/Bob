@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   View,
   Text,
   StatusBar,
   TouchableOpacity,
-  ImageBackground,
+  Alert ,
   StyleSheet,
   Dimensions
 } from 'react-native'
@@ -19,6 +19,7 @@ import Feather from 'react-native-vector-icons/Feather'
 
 const HowDoYouFeel = ({ navigation, user }) => {
   const dispatch = useDispatch()
+  const [enabled, setEnabled] = useState(null)
 
   return (
     <>
@@ -27,7 +28,7 @@ const HowDoYouFeel = ({ navigation, user }) => {
         style={styles.LinearGradient1}
         colors={['#BFCCE0', '#F8F7F4']}>
         <View style={styles.crossStyle}>
-          <Feather name={'x'} size={50} color={'#A3A2BA'} />
+          <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
@@ -41,13 +42,17 @@ const HowDoYouFeel = ({ navigation, user }) => {
             }}>
             <Text style={styles.titleTextStyle}>How do you feel?</Text>
             <View>
-              <RadioButton style={{marginVertical:5}} />
+              <RadioButton onPress={(e) => setEnabled(e)} style={{marginVertical:5}} />
             </View>
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
                 onPress={() => {
-                  navigation.navigate('TellUsMore')
+                  if(enabled == null) {
+                    Alert.alert("Alert", "Please Select one!")
+                   }else {
+                    navigation.navigate('TellUsMore')
+                   }
                 }}
               />
             </View>
@@ -72,7 +77,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: 150,
+    borderRadius: height/2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',

@@ -20,16 +20,16 @@ const VentItScreens = ({ navigation, user }) => {
                 <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
-                        imgStyle={{ width: 28, height: 46, tintColor: '#fff', top: 10}}
-                        onPress={() => navigation.navigate('Record')} 
+                        imgStyle={{ width: 28, height: 46, tintColor: '#fff', top: 10 }}
+                        onPress={() => navigation.navigate('Record')}
                         decription={'Speaking out loud creates clarity and space to find solutions'}
-                        imgIcon={require('../../assets/images/mike.png')} 
+                        imgIcon={require('../../assets/images/mike.png')}
                         title={'RECORD YOUR THOUGHTS'} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
-                    <VentOut 
+                    <VentOut
                         imgStyle={{ height: 38, width: 28, marginTop: 20 }}
-                        onPress={() => navigation.navigate('HowDoYouFeel')} 
+                        onPress={() => navigation.navigate('Write')}
                         title={'WRITE YOUR THOUGHTS'}
                         decription={'Write your thoughts to dejunk your mind and create space to find solutions.'}
                         imgIcon={require('../../assets/images/write.png')} />

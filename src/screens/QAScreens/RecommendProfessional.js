@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   SafeAreaView,
   View,
   Text,
   StatusBar,
   TouchableOpacity,
+  ImageBackground,
   StyleSheet,
-  Dimensions,
-  Alert
+  Dimensions
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import RadioButton from '../../components/RadioButton/index'
@@ -17,9 +17,8 @@ import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient'
 import Feather from 'react-native-vector-icons/Feather'
 
-const TellUsMore = ({ navigation, user }) => {
+const RecommendProfessional = ({ navigation, user }) => {
   const dispatch = useDispatch()
-  const [enabled, setEnabled] = useState(null)
 
   return (
     <>
@@ -28,7 +27,7 @@ const TellUsMore = ({ navigation, user }) => {
         style={styles.LinearGradient1}
         colors={['#BFCCE0', '#F8F7F4']}>
         <View style={styles.crossStyle}>
-          <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
+          <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
@@ -40,23 +39,16 @@ const TellUsMore = ({ navigation, user }) => {
               alignItems: 'center',
               marginTop: 20
             }}>
-            <Text style={styles.titleTextStyle}>Tell us more</Text>
+            <Text style={styles.titleTextStyle}>We recommend {"\n"} you discuss this with {"\n"} a professional
+            </Text>
             <View>
-              <RadioButton onPress={(e) => setEnabled(e)} title="I would like to talk to someone" title2="Let's think together" style={{width:250}} style2={{width:250}}/>
+              <RadioButton title="This was not helpful" title2="Thank you… now it makes sense" style={{width:250}} style2={{width:250}}/>
             </View>
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
                 onPress={() => {
-                  if(enabled == null) {
-                   Alert.alert("Alert", "Please Select one!")
-                  }else {
-                    if(enabled == 0) {
-                      Alert.alert("Featured Coming soon")
-                    }else {
-                      navigation.navigate('RationalChallenge')
-                    }
-                  }
+                  navigation.navigate('BOB')
                 }}
               />
             </View>
@@ -90,7 +82,8 @@ const styles = StyleSheet.create({
   titleTextStyle: {
     color: '#6B6B8D',
     fontSize: 20,
-    fontFamily: 'OPTIMA'
+    fontFamily: 'OPTIMA',
+    textAlign: 'center'
   },
   centerTextViewStyle: {
     marginVertical: height * 0.065,
@@ -113,4 +106,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(TellUsMore)
+export default connect(mapStateToProps, null)(RecommendProfessional)

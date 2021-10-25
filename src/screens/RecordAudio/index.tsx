@@ -320,7 +320,7 @@ import {
   StatusBar,
   Image
 } from 'react-native';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Button from './Button';
 import RNFetchBlob from 'rn-fetch-blob';
@@ -411,16 +411,16 @@ const styles: any = StyleSheet.create({
     flex: 1, alignItems: 'center'
   },
   crossStyle: {
-      width: '85%',
+    width: '85%',
 
-      marginTop: height * 0.02,
-      alignItems: 'flex-end'
+    marginTop: height * 0.02,
+    alignItems: 'flex-end'
   },
   LinearGradient2: {
-      width: '80%', height: height * 0.81, borderRadius: 150, backgroundColor: 'transparent',
-      overflow: 'hidden',
-      alignItems: 'center',
-      // justifyContent: 'center'
+    width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
+    overflow: 'hidden',
+    alignItems: 'center',
+    // justifyContent: 'center'
   },
 });
 
@@ -460,7 +460,7 @@ class VoiceRecorder extends Component<any, State> {
       duration: '00:00:00',
       isRecording: false,
       isRecordingComplete: false,
-      isPlaying :false
+      isPlaying: false
     };
 
     this.audioRecorderPlayer = new AudioRecorderPlayer();
@@ -475,97 +475,98 @@ class VoiceRecorder extends Component<any, State> {
     if (!playWidth) {
       playWidth = 0;
     }
-    const {isRecording, isRecordingComplete, isPlaying, duration, playTime, recordTime, recordSecs} = this.state
+    const { isRecording, isRecordingComplete, isPlaying, duration, playTime, recordTime, recordSecs } = this.state
     console.log('duration, playTime, recordTime, recordSecs', duration, playTime, recordTime, recordSecs)
     return (
       <SafeAreaView style={styles.container}>
         <>
-            <StatusBar barStyle="dark-content" backgroundColor={isRecordingComplete ? '#E6C5C0' : '#BFCCE0'} />
+          <StatusBar barStyle="dark-content" backgroundColor={isRecordingComplete ? '#E6C5C0' : '#BFCCE0'} />
+          <LinearGradient
+            style={styles.LinearGradient1}
+            colors={isRecordingComplete ? ['#E6C5C0', '#EAE8EA'] : ['#BFCCE0', '#F8F7F4']}
+
+
+          >
+            <View style={styles.crossStyle}>
+              <Feather onPress={() => this.props.navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
+            </View>
             <LinearGradient
-                style={styles.LinearGradient1}
-                colors={isRecordingComplete ? ['#E6C5C0', '#EAE8EA'] : ['#BFCCE0', '#F8F7F4']}
+              style={styles.LinearGradient2}
+              colors={isRecordingComplete ? ['#EAE8EA', '#E6C5C0'] : ['#F8F7F4', '#BFCCE0']}>
 
 
-            >
-                <View style={styles.crossStyle}>
-                    <Feather  onPress={() => this.props.navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
+              <View style={{
+                justifyContent: 'space-between'
+
+              }}>
+                <View style={{
+                  height: height * 0.26,
+                  // backgroundColor: 'red',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: height * 0.07
+                }}>
+                  <Image source={isRecordingComplete ? require('../../assets/images/mike2.png') : require('../../assets/images/mike.png')} style={{ width: 35, height: 56 }} />
+                  <Text style={{
+                    fontSize: 22,
+                    color: '#6B6B8D'
+                  }}>
+                    {isRecordingComplete ? 'Drag to Trash' : 'Record'}
+                  </Text>
+                  <Text style={{
+                    fontSize: 22,
+                    color: '#6B6B8D'
+                  }}>
+                    {isRecordingComplete ? 'Your note' : 'I am all ears'}
+                  </Text>
+
+
                 </View>
-                <LinearGradient
-                    style={styles.LinearGradient2}
-                    colors={isRecordingComplete ? ['#EAE8EA', '#E6C5C0'] : ['#F8F7F4', '#BFCCE0']}>
+                <View style={{
+                  // height: isRecordingComplete ? 150 : 150,
+                  height: height * 0.2,
+                  // backgroundColor: 'red',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+
+                }}>
+                  <Image source={isRecordingComplete ? require('../../assets/images/trash.png') : require('../../assets/images/Line.png')} style={{ width: isRecordingComplete ? 89 : 200, height: isRecordingComplete ? 108 : 3 }} />
 
 
-                    <View style={{
-                        justifyContent: 'space-between'
+                </View>
+                <View style={{
+                  height: isRecordingComplete ? height * 0.28 : height * 0.3,
+                  // backgroundColor: 'red',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}>
 
-                    }}>
-                        <View style={{
-                            height: 200,
-                            // backgroundColor: 'red',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            marginTop: 50
-                        }}>
-                            <Image source={isRecordingComplete ? require('../../assets/images/mike2.png') : require('../../assets/images/mike.png')} style={{ width: 35, height: 56 }} />
-                            <Text style={{
-                                fontSize: 22,
-                                color: '#6B6B8D'
-                            }}>
-                                {isRecordingComplete ? 'Drag to Trash' : 'Record'}
-                            </Text>
-                            <Text style={{
-                                fontSize: 22,
-                                color: '#6B6B8D'
-                            }}>
-                                {isRecordingComplete ? 'Your note' : 'I am all ears'}
-                            </Text>
+                  <NewmorphButton backgroundColor={isRecordingComplete ? '#E6C5C0' : '#C7D3E3'} onPress={() => {
+                    console.log("isRecording", isRecording, 'isRecordingComplete', isRecordingComplete)
+                    if (!isRecording && !isRecordingComplete) {
+                      this.onStartRecord()
+                    } else if (isRecording && !isRecordingComplete) {
+                      this.onStopRecord()
+                    } else if (isRecording && isRecordingComplete && isPlaying) {
+                      this.onPausePlay()
+                    } else if (isRecording && isRecordingComplete && !isPlaying) {
+                      this.onResumePlay()
+                    } else {
+                      this.onStartPlay()
+                    }
 
+                  }}
+                    imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
+                    imgStyle={isRecording ? {
+                      height: 40,
+                      width: 40
 
-                        </View>
-                        <View style={{
-                            height: isRecordingComplete ? 150 : 150,
-                            // backgroundColor: 'red',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-
-                        }}>
-                            <Image source={isRecordingComplete ? require('../../assets/images/trash.png') : require('../../assets/images/Line.png')} style={{ width: isRecordingComplete ? 89 : 200, height: isRecordingComplete ? 108 : 3 }} />
-
-
-                        </View>
-                        <View style={{
-                            height: isRecordingComplete ? 180 : 220,
-                            // backgroundColor: 'red',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-
-                            <NewmorphButton backgroundColor={isRecordingComplete ? '#E6C5C0' : '#C7D3E3'} onPress={() => {
-                                console.log("isRecording", isRecording, 'isRecordingComplete', isRecordingComplete)
-                                if(!isRecording && !isRecordingComplete) {
-                                    this.onStartRecord()
-                                }else if (isRecording && !isRecordingComplete) {
-                                    this.onStopRecord()
-                                }else if(isRecording && isRecordingComplete && isPlaying) {
-                                    this.onPausePlay()
-                                }else if(isRecording && isRecordingComplete && !isPlaying) {
-                                    this.onResumePlay()
-                                }else {
-                                    this.onStartPlay()
-                                }
-
-                            }}
-                                imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
-                                imgStyle={isRecording ? {
-                                    height: 40,
-                                    width: 40
-
-                                } : { width: 35, height: 56 }}
-                            />
-                        </View>
-                    </View>
-                </LinearGradient>
+                    } : { width: 35, height: 56 }}
+                  />
+                </View>
+              </View>
             </LinearGradient>
+          </LinearGradient>
         </>
       </SafeAreaView>
     );
@@ -605,11 +606,11 @@ class VoiceRecorder extends Component<any, State> {
 
         if (
           grants['android.permission.WRITE_EXTERNAL_STORAGE'] ===
-            PermissionsAndroid.RESULTS.GRANTED &&
+          PermissionsAndroid.RESULTS.GRANTED &&
           grants['android.permission.READ_EXTERNAL_STORAGE'] ===
-            PermissionsAndroid.RESULTS.GRANTED &&
+          PermissionsAndroid.RESULTS.GRANTED &&
           grants['android.permission.RECORD_AUDIO'] ===
-            PermissionsAndroid.RESULTS.GRANTED
+          PermissionsAndroid.RESULTS.GRANTED
         ) {
           console.log('permissions granted');
         } else {
@@ -683,10 +684,11 @@ class VoiceRecorder extends Component<any, State> {
       isPlaying: !this.state.isPlaying
     })
     this.audioRecorderPlayer.addPlayBackListener((e: PlayBackType) => {
-      if(this.audioRecorderPlayer.mmssss(Math.floor(e.duration)) == this.audioRecorderPlayer.mmssss(Math.floor(e.currentPosition))) {
+      if (this.audioRecorderPlayer.mmssss(Math.floor(e.duration)) == this.audioRecorderPlayer.mmssss(Math.floor(e.currentPosition))) {
         this.setState({
           isPlaying: false
         })
+        this.props.navigation.navigate("HowDoYouFeel")
       }
       this.setState({
         currentPositionSec: e.currentPosition,

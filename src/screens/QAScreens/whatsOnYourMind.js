@@ -5,7 +5,7 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
-  ImageBackground,
+  Image,
   StyleSheet,
   Dimensions,
   KeyboardAvoidingView
@@ -20,7 +20,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import Feather from 'react-native-vector-icons/Feather'
 import { ScrollView } from 'react-native-gesture-handler'
 
-const RationalChallenge = ({ navigation, user }) => {
+const WhatsOnYourMind = ({ navigation, user }) => {
   const dispatch = useDispatch()
 
   return (
@@ -43,8 +43,8 @@ const RationalChallenge = ({ navigation, user }) => {
                 alignItems: 'center',
                 marginTop: 20
               }}>
-              <Text style={styles.titleTextStyle}>The Rational Challenge</Text>
-              <Text style={styles.QuestionTextStyle}>1. How are you feeling {'\n'}right now?</Text>
+              <Image source={require('../../assets/images/pencil2.png')} style={{ width: 42, height: 57 }} />
+              <Text style={styles.QuestionTextStyle}>What is on your {"\n"}mind Daniel?</Text>
               <View
                 style={{
                   height: 250,
@@ -53,21 +53,13 @@ const RationalChallenge = ({ navigation, user }) => {
                   justifyContent: "center"
                 }}>
                 <TextInputView />
-                {/* <TextInputView/>
-                        <TextInputView/>
-                        <TextInputView/> */}
               </View>
-
-              {/* <TextInputView/>
-            <TextInputView/> */}
-
-
 
               <View style={styles.buttonViewStyle}>
                 <NewmorphButton
                   backgroundColor="#C7D3E3"
                   onPress={() => {
-                    navigation.navigate('RationalChallenge2')
+                    navigation.navigate('Burn')
                   }}
                 />
               </View>
@@ -131,4 +123,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(RationalChallenge)
+export default connect(mapStateToProps, null)(WhatsOnYourMind)
