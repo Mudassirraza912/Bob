@@ -25,10 +25,7 @@ const Write = ({ navigation, user }) => {
             <StatusBar barStyle="dark-content" backgroundColor='#BFCCE0' />
             <LinearGradient
                 style={styles.LinearGradient1}
-                colors={['#BFCCE0', '#F8F7F4']}
-
-
-            >
+                colors={['#BFCCE0', '#F8F7F4']}>
                 <View style={styles.crossStyle}>
                     <Feather name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
@@ -41,22 +38,14 @@ const Write = ({ navigation, user }) => {
                         // justifyContent: 'space-between'
 
                     }}>
-                        <View
-
-                            style={styles.imageTextViewStyle}
-
-                        >
+                        <View style={styles.imageTextViewStyle}>
                             <Image source={require('../../assets/images/pencil2.png')} style={{ width: 42, height: 57 }} />
                             <Text
-                                style={styles.textStyle}
-
-                            >
+                                style={styles.textStyle}>
                                 What is on your
                             </Text>
                             <Text
-                                style={styles.textStyle}
-
-                            >
+                                style={styles.textStyle}>
                                 mind Danial
                             </Text>
 
@@ -66,17 +55,13 @@ const Write = ({ navigation, user }) => {
 
 
                         <View
-                            style={styles.centerImageViewStyle}
-
-                        >
+                            style={styles.centerImageViewStyle}>
 
 
 
                         </View>
                         <View
-                            style={styles.buttonViewStyle}
-
-                        >
+                            style={styles.buttonViewStyle}>
                             <WhiteButton title="Completed" textStyle={{ color: "#B5C5DC" }} onPress={() => {
                                 navigation.navigate('Burn')
                             }} />

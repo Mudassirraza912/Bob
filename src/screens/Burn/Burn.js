@@ -8,7 +8,7 @@ import {
     ImageBackground,
     StyleSheet,
     Dimensions,
-    Image
+    Image,
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
@@ -18,7 +18,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
 
-const Burn = () => {
+const Burn = ({ navigation, user }) => {
 
 
 
@@ -74,9 +74,7 @@ const Burn = () => {
 
                             </View>
                             <View
-                                style={styles.buttonViewStyle}
-
-                            >
+                                style={styles.buttonViewStyle}>
                                 <WhiteButton title="Burn" textStyle={{ color: "#E39684" }} />
 
                                 {/* <TouchableOpacity
