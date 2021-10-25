@@ -52,7 +52,7 @@ const Record = ({
 
 
                     <View style={{
-                        justifyContent: 'space-between'
+                        // justifyContent: 'space-between'
 
                     }}>
                         <View style={{
@@ -98,11 +98,11 @@ const Record = ({
 
                             <NewmorphButton backgroundColor={recordingStart ? '#E6C5C0' : '#C7D3E3'} onPress={() => {
                                 console.log("isRecording", isRecording, 'isRecordingComplete', isRecordingComplete)
-                                if(!isRecording) {
+                                if (!isRecording) {
                                     onRecord()
-                                }else if (isRecording && !isRecordingComplete) {
+                                } else if (isRecording && !isRecordingComplete) {
                                     onStop()
-                                }else {
+                                } else {
                                     onPlay()
                                 }
                             }}

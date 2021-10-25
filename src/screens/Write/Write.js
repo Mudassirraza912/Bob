@@ -8,7 +8,8 @@ import {
     ImageBackground,
     StyleSheet,
     Dimensions,
-    Image
+    Image,
+    TextInput
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
@@ -18,16 +19,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
 
-const Burn = () => {
-
-
-
+const Write = ({ navigation, user }) => {
     return (
         <>
-            <StatusBar barStyle="dark-content" backgroundColor='#E6C5C0' />
+            <StatusBar barStyle="dark-content" backgroundColor='#BFCCE0' />
             <LinearGradient
                 style={styles.LinearGradient1}
-                colors={['#E6C5C0', '#EAE8EA']}
+                colors={['#BFCCE0', '#F8F7F4']}
 
 
             >
@@ -36,7 +34,7 @@ const Burn = () => {
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}
-                    colors={['#EAE8EA', '#E6C5C0']}>
+                    colors={['#F8F7F4', '#BFCCE0']}>
 
 
                     <View style={{
@@ -48,61 +46,46 @@ const Burn = () => {
                             style={styles.imageTextViewStyle}
 
                         >
-                            <Image source={require('../../assets/images/pencil.png')} style={{ width: 42, height: 57 }} />
+                            <Image source={require('../../assets/images/pencil2.png')} style={{ width: 42, height: 57 }} />
                             <Text
                                 style={styles.textStyle}
 
                             >
-                                Burn your Note
+                                What is on your
+                            </Text>
+                            <Text
+                                style={styles.textStyle}
+
+                            >
+                                mind Danial
                             </Text>
 
 
 
                         </View>
 
-                        <ImageBackground source={require('../../assets/images/flame.png')} style={{
-                            width: 270,
-                            height: 404,
 
-                        }}>
-                            <View
-                                style={styles.centerImageViewStyle}
+                        <View
+                            style={styles.centerImageViewStyle}
 
-                            >
-                                <Image source={require('../../assets/images/book.png')} style={{ width: 95, height: 86 }} />
+                        >
 
 
-                            </View>
-                            <View
-                                style={styles.buttonViewStyle}
 
-                            >
-                                <WhiteButton title="Burn" textStyle={{ color: "#E39684" }} />
+                        </View>
+                        <View
+                            style={styles.buttonViewStyle}
 
-                                {/* <TouchableOpacity
-
-                                    activeOpacity={0.7}
-                                    style={{
-                                        width: '50%',
-                                        alignSelf: 'center',
-                                        height: 24,
-                                        borderRadius: 12,
-                                        backgroundColor: '#fff',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }}>
-                                    <Text style={{
-                                        color: '#E39684',
-                                        fontSize: 16,
-                                        fontFamily: 'Optima'
-                                    }}>
-                                        Burn
-                                    </Text>
-                                </TouchableOpacity> */}
+                        >
+                            <WhiteButton title="Completed" textStyle={{ color: "#B5C5DC" }} onPress={() => {
+                                navigation.navigate('Burn')
+                            }} />
 
 
-                            </View>
-                        </ImageBackground>
+
+
+                        </View>
+
 
 
                     </View>
@@ -141,7 +124,8 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: 22,
-        color: '#6B6B8D'
+        color: '#6B6B8D',
+        fontFamily: 'Optima'
     },
     centerImageViewStyle: {
         height: height * 0.2,
@@ -164,4 +148,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Burn)
+export default connect(mapStateToProps, null)(Write)

@@ -37,7 +37,7 @@ const BOB = ({ navigation, user }) => {
                         onPress={() => navigation.navigate('WhoIsBob')}
                         title={'WHO IS BOB'}
                         decription={''}
-                        />
+                    />
                 </View>
             </ScrollView>
             <View style={styles.foter}>

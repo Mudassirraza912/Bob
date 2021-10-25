@@ -10,11 +10,12 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
-import VoiceRecorder  from '../screens/RecordAudio'
+import VoiceRecorder from '../screens/RecordAudio'
 import HowDoYouFeel from '../screens/QAScreens/HowDoYouFeel'
 import TellUsMore from '../screens/QAScreens/TellUsMore'
 import RationalChallenge from '../screens/QAScreens/RationalChallenge'
 import VentItScreens from '../screens/BOB/VentItScreen'
+import Write from '../screens/Write/Write'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -84,7 +85,7 @@ const MainNavigation = () => {
           name="RationalChallenge"
           options={{ headerShown: false }}
           component={RationalChallenge}
-          />
+        />
         <Stack.Screen
           name="WhoIsBob"
           options={{ headerShown: false }}
@@ -94,6 +95,11 @@ const MainNavigation = () => {
           name="Record"
           options={{ headerShown: false }}
           component={VoiceRecorder}
+        />
+        <Stack.Screen
+          name="Write"
+          options={{ headerShown: false }}
+          component={Write}
         />
         <Stack.Screen
           name="Burn"

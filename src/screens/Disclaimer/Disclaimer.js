@@ -91,10 +91,12 @@ const styles = StyleSheet.create({
     discliamerTextStyle: {
         color: '#6B6B8D',
         fontSize: 22,
+        fontFamily: 'OPTIMA'
     },
     centerTextViewStyle: {
         marginVertical: height * 0.065,
-        width: '85%'
+        width: '85%',
+        // fontFamily: 'Optima'
     },
     centerTextStyle: {
         color: '#6B6B8D',
