@@ -22,7 +22,7 @@ export default function RadioButton({
         onPress(1)
       };
     return (
-        <View style={{}}>
+        <View style={{justifyContent:"center", alignItems:"center"}}>
             <TouchableOpacity onPress={() => handleOnFocus()} activeOpacity={0.9} style={[onFocus ? styles.deFocusButton : styles.onFocusButton, style]}>
                 <Text style={{color:"#B5C5DC", fontSize:16}}>{title}</Text>
             </TouchableOpacity>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         justifyContent:"center"
     },
     onFocusButton:{
-        height:35,
+        height:36,
         width:205,
         backgroundColor:"#fff",
         borderRadius:50,
@@ -53,6 +53,11 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         borderWidth:1,
-        borderColor:"#43acf7"
+        borderColor:"#43acf7",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity:  0.27,
+        shadowRadius: 4.65,
+        elevation: 8,
     }
 })
