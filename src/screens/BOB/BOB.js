@@ -17,7 +17,7 @@ const BOB = ({ navigation, user }) => {
     return (
         <LinearGradient style={styles.container} colors={['#D1D9E5', '#8B97B4']} >
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
+                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>HEY DANIELS</Text>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut onPress={() => navigation.navigate('VentItScreens')} />
                 </View>
@@ -28,7 +28,7 @@ const BOB = ({ navigation, user }) => {
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut imgStyle={{ height: 15, width: 45, marginTop: 20 }}
-                        title={'ASK THE EXPERT'}
+                        title={'ASK THE \nEXPERT'}
                         decription={'Getting a professional point of view'}
                         imgIcon={require('../../assets/images/Path700.png')} />
                 </View>

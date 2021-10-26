@@ -19,7 +19,7 @@ const Home = ({ navigation, user }) => {
       
       <SafeAreaView style={styles.SafeAreaView2}>
         <ImageBackground source={require('../../assets/images/earBack.png')} style={styles.imgBackground}>
-          <View style={{ paddingVertical: 40, alignItems: 'center' }}>
+          <View style={{ paddingVertical: 60, alignItems: 'center' }}>
             <View>
               <Text style={styles.nameTxt}>
                 Hey Daniel
@@ -38,9 +38,10 @@ const Home = ({ navigation, user }) => {
           </View>
 
           <View style={styles.bottomBtn}>
-            <NewmorphButton backgroundColor="#B5C5DC" onPress={() => {
+            <NewmorphButton backgroundColor="#B5C5DC"  imgStyle={{marginLeft:10}}  onPress={() => {
               navigation.navigate('Disclaimer')
             }} />
+
           </View>
 
         </ImageBackground>
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
   },
   bottomBtn: {
     position: 'absolute',
-    bottom: 30
+    bottom: 60
   }
 })
 

@@ -24,16 +24,16 @@ const RecommendProfessional = ({ navigation, user }) => {
     <SafeAreaView style={{
       flex:1
   }}> 
-      <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
+      <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
       <LinearGradient
         style={styles.LinearGradient1}
-        colors={['#BFCCE0', '#F8F7F4']}>
+        colors={['#B5C5DC', '#F8F7F4']}>
         <View style={styles.crossStyle}>
           <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
-          colors={['#F8F7F4', '#BFCCE0']}>
+          colors={['#F8F7F4', '#B5C5DC']}>
           <View
             style={{
               flex: 1,
@@ -49,6 +49,7 @@ const RecommendProfessional = ({ navigation, user }) => {
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
+                imgStyle={{marginLeft:10}} 
                 onPress={() => {
                   navigation.navigate('BOB')
                 }}

@@ -32,7 +32,7 @@ const Burn = ({navigation}) => {
                 colors={['#E6C5C0', '#EAE8EA']}
             >
                 <View style={styles.crossStyle}>
-                    <Feather onPress={() => this.props.navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
+                    <Feather onPress={() => navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}

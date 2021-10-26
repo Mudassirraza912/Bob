@@ -60,6 +60,7 @@ const WhatsOnYourMind = ({ navigation, user }) => {
               <View style={styles.buttonViewStyle}>
                 <NewmorphButton
                   backgroundColor="#C7D3E3"
+                  imgStyle={{marginLeft:10}} 
                   onPress={() => {
                     navigation.navigate('Burn')
                   }}

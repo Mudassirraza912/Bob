@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 export default function RadioButton({
 
     title = "I need more",
-    title2 = "I'am way better",
+    title2 = "I'm way better",
     onPress = (e) => { },
     style={},
     style2={},

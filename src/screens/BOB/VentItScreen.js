@@ -17,7 +17,7 @@ const VentItScreens = ({ navigation, user }) => {
     return (
         <LinearGradient style={styles.container} colors={['#D1D9E5', '#8B97B4']} >
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
+                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>HEY DANIEL</Text>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
                         imgStyle={{ width: 28, height: 46, tintColor: '#fff', top: 10 }}

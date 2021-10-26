@@ -33,33 +33,40 @@ const RationalChallenge4 = ({ navigation, user }) => {
           style={styles.LinearGradient1}
           colors={['#BFCCE0', '#F8F7F4']}>
           <View style={styles.crossStyle}>
-            <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
+            <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
           </View>
           <LinearGradient
             style={styles.LinearGradient2}
             colors={['#F8F7F4', '#BFCCE0']}>
             <View
               style={{
-                flex: 1,
-                justifyContent: 'space-evenly',
+                // flex: 1,
+                // justifyContent: 'space-evenly',
                 alignItems: 'center',
-                marginTop: 20
+                // marginTop: 20
               }}>
               <Text style={styles.titleTextStyle}>The Rational Challenge</Text>
               <Text style={styles.QuestionTextStyle}>4. What’s the evidence?</Text>
               <View
                 style={{
-                  height: 250,
+                  height: 200,
                   width: 260,
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
                 <TextInputView />
+             
               </View>
+
+              {/* <TextInputView/>
+            <TextInputView/> */}
+
+
 
               <View style={styles.buttonViewStyle}>
                 <NewmorphButton
                   backgroundColor="#C7D3E3"
+                  imgStyle={{marginLeft:10}} 
                   onPress={() => {
                     navigation.navigate('RationalChallenge5')
                   }}
@@ -96,13 +103,15 @@ const styles = StyleSheet.create({
   titleTextStyle: {
     color: '#6B6B8D',
     fontSize: 20,
-    fontFamily: 'OPTIMA'
+    fontFamily: 'OPTIMA',
+    textAlign:'center'
   },
   QuestionTextStyle: {
     color: '#6B6B8D',
     fontSize: 15,
     fontFamily: 'OPTIMA',
     textAlign: 'center',
+    paddingTop:40
   },
   centerTextViewStyle: {
     marginVertical: height * 0.065,

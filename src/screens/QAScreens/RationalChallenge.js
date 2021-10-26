@@ -40,24 +40,22 @@ const RationalChallenge = ({ navigation, user }) => {
             colors={['#F8F7F4', '#BFCCE0']}>
             <View
               style={{
-                flex: 1,
-                justifyContent: 'space-evenly',
+                // flex: 1,
+                // justifyContent: 'space-evenly',
                 alignItems: 'center',
-                marginTop: 20
+                // marginTop: 20
               }}>
               <Text style={styles.titleTextStyle}>The Rational Challenge</Text>
               <Text style={styles.QuestionTextStyle}>1. How are you feeling {'\n'}right now?</Text>
               <View
                 style={{
-                  height: 250,
+                  height: 200,
                   width: 260,
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
                 <TextInputView />
-                {/* <TextInputView/>
-                        <TextInputView/>
-                        <TextInputView/> */}
+             
               </View>
 
               {/* <TextInputView/>
@@ -68,6 +66,7 @@ const RationalChallenge = ({ navigation, user }) => {
               <View style={styles.buttonViewStyle}>
                 <NewmorphButton
                   backgroundColor="#C7D3E3"
+                  imgStyle={{marginLeft:10}} 
                   onPress={() => {
                     navigation.navigate('RationalChallenge2')
                   }}
@@ -104,13 +103,15 @@ const styles = StyleSheet.create({
   titleTextStyle: {
     color: '#6B6B8D',
     fontSize: 20,
-    fontFamily: 'OPTIMA'
+    fontFamily: 'OPTIMA',
+    textAlign:'center'
   },
   QuestionTextStyle: {
     color: '#6B6B8D',
     fontSize: 15,
     fontFamily: 'OPTIMA',
     textAlign: 'center',
+    paddingTop:40
   },
   centerTextViewStyle: {
     marginVertical: height * 0.065,

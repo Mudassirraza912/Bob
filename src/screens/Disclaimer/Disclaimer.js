@@ -60,7 +60,8 @@ const Disclaimer = ({ navigation, user }) => {
                             imgPath={require('../../assets/images/phone.png')}
                             imgStyle={{
                                 height: 40,
-                                width: 40
+                                width: 40,
+                                marginLeft:5
 
                             }}
                         />
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
         color: '#6B6B8D',
         fontSize: 18,
         textAlign: 'center',
-        lineHeight: 25
+        lineHeight: 27,
     },
     buttonViewStyle: {
         marginTop: height * 0.03
