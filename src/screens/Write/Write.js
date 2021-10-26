@@ -22,7 +22,9 @@ import TextInputView from '../../components/TextInput';
 
 const Write = ({ navigation, user }) => {
     return (
-        <>
+        <SafeAreaView style={{
+            flex:1
+        }}>  
             <StatusBar barStyle="dark-content" backgroundColor='#BFCCE0' />
             <LinearGradient
                 style={styles.LinearGradient1}
@@ -70,7 +72,7 @@ const Write = ({ navigation, user }) => {
                 </LinearGradient>
 
             </LinearGradient>
-        </>
+            </SafeAreaView>
     )
 }
 

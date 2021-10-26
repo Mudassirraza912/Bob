@@ -23,7 +23,9 @@ const Burn = ({navigation}) => {
 
 
     return (
-        <>
+        <SafeAreaView style={{
+            flex:1
+        }}>  
             <StatusBar barStyle="dark-content" backgroundColor='#E6C5C0' />
             <LinearGradient
                 style={styles.LinearGradient1}
@@ -70,7 +72,7 @@ const Burn = ({navigation}) => {
                     </View>
                 </LinearGradient>
             </LinearGradient>
-        </>
+            </SafeAreaView>
     )
 }
 

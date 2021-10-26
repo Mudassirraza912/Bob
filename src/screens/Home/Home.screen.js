@@ -16,6 +16,7 @@ const Home = ({ navigation, user }) => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
+      
       <SafeAreaView style={styles.SafeAreaView2}>
         <ImageBackground source={require('../../assets/images/earBack.png')} style={styles.imgBackground}>
           <View style={{ paddingVertical: 40, alignItems: 'center' }}>

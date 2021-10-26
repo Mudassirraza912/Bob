@@ -24,7 +24,9 @@ const RationalChallenge3 = ({ navigation, user }) => {
   const dispatch = useDispatch()
 
   return (
-    <>
+    <SafeAreaView style={{
+      flex:1
+  }}>  
       <ScrollView>
         <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
         <LinearGradient
@@ -75,7 +77,7 @@ const RationalChallenge3 = ({ navigation, user }) => {
           </LinearGradient>
         </LinearGradient>
       </ScrollView>
-    </>
+      </SafeAreaView>
   )
 }
 

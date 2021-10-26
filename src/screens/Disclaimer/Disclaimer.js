@@ -21,8 +21,11 @@ const Disclaimer = ({ navigation, user }) => {
     const dispatch = useDispatch()
 
     return (
-        <>
+        <SafeAreaView style={{
+            flex:1
+        }}>  
             <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
+         
             <LinearGradient
                 style={styles.LinearGradient1}
                 colors={['#BFCCE0', '#F8F7F4']}>
@@ -67,8 +70,7 @@ const Disclaimer = ({ navigation, user }) => {
 
             </LinearGradient>
 
-
-        </>
+            </SafeAreaView>
     )
 }
 
