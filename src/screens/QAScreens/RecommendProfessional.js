@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import {
   SafeAreaView,
   View,
@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  Alert
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import RadioButton from '../../components/RadioButton/index'
@@ -19,19 +20,21 @@ import Feather from 'react-native-vector-icons/Feather'
 
 const RecommendProfessional = ({ navigation, user }) => {
   const dispatch = useDispatch()
-
+  const [enabled, setEnabled] = useState(null)
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
+    <SafeAreaView style={{
+      flex:1
+  }}> 
+      <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
       <LinearGradient
         style={styles.LinearGradient1}
-        colors={['#BFCCE0', '#F8F7F4']}>
+        colors={['#B5C5DC', '#F8F7F4']}>
         <View style={styles.crossStyle}>
           <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
-          colors={['#F8F7F4', '#BFCCE0']}>
+          colors={['#F8F7F4', '#B5C5DC']}>
           <View
             style={{
               flex: 1,
@@ -42,20 +45,29 @@ const RecommendProfessional = ({ navigation, user }) => {
             <Text style={styles.titleTextStyle}>We recommend {"\n"} you discuss this with {"\n"} a professional
             </Text>
             <View>
-              <RadioButton title="This was not helpful" title2="Thank you… now it makes sense" style={{width:250}} style2={{width:250}}/>
+            <RadioButton onPress={(e) => setEnabled(e)}  title="Yes please" title2="No, thank you... maybe later" style={{width:250}} style2={{width:250}}/>
             </View>
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
+                imgStyle={{marginLeft:10}} 
                 onPress={() => {
-                  navigation.navigate('BOB')
+                  if(enabled == null) {
+                    Alert.alert("Alert", "Please Select one!")
+                   }else {
+                     if(enabled == 0) {
+                       Alert.alert("Coming soon")
+                     }else {
+                       navigation.navigate('BOB')
+                     }
+                   }
                 }}
               />
             </View>
           </View>
         </LinearGradient>
       </LinearGradient>
-    </>
+      </SafeAreaView>
   )
 }
 

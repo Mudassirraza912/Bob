@@ -17,10 +17,10 @@ const VentItScreens = ({ navigation, user }) => {
     return (
         <LinearGradient style={styles.container} colors={['#D1D9E5', '#8B97B4']} >
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
+                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>HEY DANIEL</Text>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
-                        imgStyle={{ width: 28, height: 46, tintColor: '#fff', top: 10 }}
+                        imgStyle={{ width: 22, height: 40, tintColor: '#fff', top: 5 }}
                         onPress={() => navigation.navigate('Record')}
                         decription={'Speaking out loud creates clarity and space to find solutions'}
                         imgIcon={require('../../assets/images/mike.png')}
@@ -28,7 +28,7 @@ const VentItScreens = ({ navigation, user }) => {
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
-                        imgStyle={{ height: 38, width: 28, marginTop: 20 }}
+                        imgStyle={{ height: 38, width: 28, marginTop: 5  }}
                         onPress={() => navigation.navigate('Write')}
                         title={'WRITE YOUR THOUGHTS'}
                         decription={'Write your thoughts to dejunk your mind and create space to find solutions.'}
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         position: 'absolute',
         width: '100%',
-        bottom: 0,
+        bottom: 15,
         alignSelf: 'center'
     }
 })

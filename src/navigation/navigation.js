@@ -23,6 +23,7 @@ import VentItScreens from '../screens/BOB/VentItScreen'
 import Write from '../screens/Write/Write'
 import RecommendProfessional from '../screens/QAScreens/RecommendProfessional'
 import whatsOnYourMind from '../screens/QAScreens/whatsOnYourMind'
+import IsItHelpFull from '../screens/QAScreens/IsItHelpFull'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -117,6 +118,11 @@ const MainNavigation = () => {
           name="RationalChallenge6"
           options={{ headerShown: false }}
           component={RationalChallenge6}
+        />
+        <Stack.Screen
+          name="IsItHelpFull"
+          options={{ headerShown: false }}
+          component={IsItHelpFull}
         />
         <Stack.Screen
           name="RecommendProfessional"

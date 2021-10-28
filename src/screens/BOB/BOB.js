@@ -17,24 +17,26 @@ const BOB = ({ navigation, user }) => {
     return (
         <LinearGradient style={styles.container} colors={['#D1D9E5', '#8B97B4']} >
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>Hey Daniel</Text>
+                <Text style={{ paddingVertical: "13%", textAlign: "center", color: "#95A4B9", fontSize: 16 }}>HEY DANIEL</Text>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut onPress={() => navigation.navigate('VentItScreens')} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
                         decription={'Sample tools to calm down extreme emotions triggered in the moment'}
-                        imgIcon={require('../../assets/images/Group333.png')} title={'TRIGGERS'} />
+                        imgIcon={require('../../assets/images/Group333.png')}
+                        title={'TRIGGERS'}
+                        imgStyle={{ height: 45, width: 25 }} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut imgStyle={{ height: 15, width: 45, marginTop: 20 }}
-                        title={'ASK THE EXPERT'}
+                        title={'ASK THE \nEXPERT'}
                         decription={'Getting a professional point of view'}
                         imgIcon={require('../../assets/images/Path700.png')} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
-                        borderStyle={{height: 0}}
+                        borderStyle={{ height: 0 }}
                         imgIcon={""}
                         onPress={() => navigation.navigate('WhoIsBob')}
                         title={'WHO IS BOB'}
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         position: 'absolute',
         width: '100%',
-        bottom: 0,
+        bottom: 15,
         alignSelf: 'center'
     }
 })

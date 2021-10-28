@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   View,
@@ -8,7 +8,8 @@ import {
   ImageBackground,
   StyleSheet,
   Dimensions,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import TextInputView from '../../components/TextInput/index'
@@ -22,40 +23,41 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 const RationalChallenge3 = ({ navigation, user }) => {
   const dispatch = useDispatch()
-
+  const [answer, setAnswer] = useState('')
   return (
-    <>
+    <SafeAreaView style={{
+      flex:1
+  }}>  
       <ScrollView>
         <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
         <LinearGradient
           style={styles.LinearGradient1}
           colors={['#BFCCE0', '#F8F7F4']}>
           <View style={styles.crossStyle}>
-            <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
+            <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
           </View>
           <LinearGradient
             style={styles.LinearGradient2}
             colors={['#F8F7F4', '#BFCCE0']}>
             <View
               style={{
-                flex: 1,
-                justifyContent: 'space-evenly',
+                // flex: 1,
+                // justifyContent: 'space-evenly',
                 alignItems: 'center',
-                marginTop: 20
+                // marginTop: 20
               }}>
               <Text style={styles.titleTextStyle}>The Rational Challenge</Text>
-              <Text style={styles.QuestionTextStyle}>3. What is assumed?{'\n'} Assumed intention?</Text>
+              <Text style={styles.QuestionTextStyle}>3. What is assumed? {'\n'} Assumed intention?</Text>
               <View
                 style={{
-                  height: 250,
+                  // height: 200,
+                  marginVertical: 20,
                   width: 260,
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                <TextInputView />
-                {/* <TextInputView/>
-                        <TextInputView/>
-                        <TextInputView/> */}
+                <TextInputView onChange={(e) => setAnswer(e)}  />
+             
               </View>
 
               {/* <TextInputView/>
@@ -66,8 +68,13 @@ const RationalChallenge3 = ({ navigation, user }) => {
               <View style={styles.buttonViewStyle}>
                 <NewmorphButton
                   backgroundColor="#C7D3E3"
+                  imgStyle={{marginLeft:10}} 
                   onPress={() => {
-                    navigation.navigate('RationalChallenge4')
+                    if(answer) {
+                      navigation.navigate('RationalChallenge4')
+                    }else {
+                      Alert.alert("Alert", "Field is required")
+                    }
                   }}
                 />
               </View>
@@ -75,7 +82,7 @@ const RationalChallenge3 = ({ navigation, user }) => {
           </LinearGradient>
         </LinearGradient>
       </ScrollView>
-    </>
+      </SafeAreaView>
   )
 }
 
@@ -102,13 +109,16 @@ const styles = StyleSheet.create({
   titleTextStyle: {
     color: '#6B6B8D',
     fontSize: 20,
-    fontFamily: 'OPTIMA'
+    fontFamily: 'OPTIMA',
+    textAlign:'center'
   },
   QuestionTextStyle: {
     color: '#6B6B8D',
     fontSize: 15,
     fontFamily: 'OPTIMA',
     textAlign: 'center',
+    paddingTop:40
+
   },
   centerTextViewStyle: {
     marginVertical: height * 0.065,

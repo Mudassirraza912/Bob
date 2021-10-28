@@ -22,7 +22,9 @@ const TellUsMore = ({ navigation, user }) => {
   const [enabled, setEnabled] = useState(null)
 
   return (
-    <>
+    <SafeAreaView style={{
+      flex:1
+  }}>  
       <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
       <LinearGradient
         style={styles.LinearGradient1}
@@ -47,12 +49,13 @@ const TellUsMore = ({ navigation, user }) => {
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
+                imgStyle={{marginLeft:10}} 
                 onPress={() => {
                   if(enabled == null) {
                    Alert.alert("Alert", "Please Select one!")
                   }else {
                     if(enabled == 0) {
-                      Alert.alert("Featured Coming soon")
+                      Alert.alert("Coming soon")
                     }else {
                       navigation.navigate('RationalChallenge')
                     }
@@ -63,7 +66,7 @@ const TellUsMore = ({ navigation, user }) => {
           </View>
         </LinearGradient>
       </LinearGradient>
-    </>
+      </SafeAreaView>
   )
 }
 

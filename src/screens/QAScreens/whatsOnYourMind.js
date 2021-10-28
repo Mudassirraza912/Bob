@@ -24,7 +24,9 @@ const WhatsOnYourMind = ({ navigation, user }) => {
   const dispatch = useDispatch()
 
   return (
-    <>
+    <SafeAreaView style={{
+      flex:1
+  }}>  
       <ScrollView>
         <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
         <LinearGradient
@@ -58,6 +60,7 @@ const WhatsOnYourMind = ({ navigation, user }) => {
               <View style={styles.buttonViewStyle}>
                 <NewmorphButton
                   backgroundColor="#C7D3E3"
+                  imgStyle={{marginLeft:10}} 
                   onPress={() => {
                     navigation.navigate('Burn')
                   }}
@@ -67,7 +70,8 @@ const WhatsOnYourMind = ({ navigation, user }) => {
           </LinearGradient>
         </LinearGradient>
       </ScrollView>
-    </>
+
+      </SafeAreaView>
   )
 }
 

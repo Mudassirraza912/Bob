@@ -11,11 +11,13 @@ const index = ({
     iconColor = '#fff',
     imgPath = require('../../assets/images/arrow-right.png'),
     imgStyle = {},
-    backgroundColor = '#fff'
+    backgroundColor = '#fff',
+    touchableStyle={}
 }) => {
     return (
 
         <TouchableOpacity
+            style={[{}, touchableStyle]}
             activeOpacity={0.7}
             onPress={onPress}
         >

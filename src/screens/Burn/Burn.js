@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import {
     SafeAreaView,
     View,
@@ -9,6 +9,7 @@ import {
     StyleSheet,
     Dimensions,
     Image,
+    Animated
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
@@ -20,17 +21,50 @@ import WhiteButton from '../../components/WhiteButton'
 
 const Burn = ({ navigation }) => {
 
+    const fadeAnim = useRef(new Animated.Value(0)).current;
+    const fadeIn = () => {
+        SetShowBurn(true)
+        Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 1000,
+            useNativeDriver: true
+        }).start();
 
+    };
+
+    const fadeOut = () => {
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 800,
+            useNativeDriver: true
+        }).start();
+    };
+
+    const [isBurnIcon, SetShowBurn] = useState(false)
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (isBurnIcon) {
+                fadeOut()
+                SetShowBurn(false)
+                navigation.navigate('HowDoYouFeel')
+            }
+        }, 1200)
+    }, [isBurnIcon])
+
+    console.log("isBurnIcon", isBurnIcon)
 
     return (
-        <>
+        <SafeAreaView style={{
+            flex: 1
+        }}>
             <StatusBar barStyle="dark-content" backgroundColor='#E6C5C0' />
             <LinearGradient
                 style={styles.LinearGradient1}
                 colors={['#E6C5C0', '#EAE8EA']}
             >
                 <View style={styles.crossStyle}>
-                    <Feather onPress={() => this.props.navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
+                    <Feather onPress={() => navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
                 <LinearGradient
                     style={styles.LinearGradient2}
@@ -44,7 +78,6 @@ const Burn = ({ navigation }) => {
                             <Image source={require('../../assets/images/pencil.png')} style={{ width: 42, height: 57 }} />
                             <Text
                                 style={styles.textStyle}
-
                             >
                                 Burn your Note
                             </Text>
@@ -54,15 +87,25 @@ const Burn = ({ navigation }) => {
                             height: 404,
                         }}>
                             <View
-                                style={styles.centerImageViewStyle}
+                                style={[styles.centerImageViewStyle]}
                             >
-                                <Image source={require('../../assets/images/book.png')} style={{ width: 95, height: 86 }} />
+                                {!isBurnIcon ?
+                                    <Image source={require('../../assets/images/book.png')} style={{ width: 90, height: 86, }} />
+                                    :
+                                    <Animated.View style={[
+                                        {
+                                            opacity: fadeAnim,
+                                        },
+                                    ]}>
+                                        <Image source={require('../../assets/Burn2.gif')} style={{ width: 90, height: 130, }} />
+                                    </Animated.View>}
                             </View>
                             <View
                                 style={styles.buttonViewStyle}
 
                             >
-                                <WhiteButton onPress={() => navigation.navigate("HowDoYouFeel")} title="Burn" textStyle={{ color: "#E39684" }} />
+                                {/* <WhiteButton onPress={fadeIn} title="Burn" textStyle={{ color: "#E39684" }} /> */}
+                                <WhiteButton onPress={() => fadeIn()} title="Burn" textStyle={{ color: "#E39684" }} />
 
                             </View>
                         </ImageBackground>
@@ -70,7 +113,7 @@ const Burn = ({ navigation }) => {
                     </View>
                 </LinearGradient>
             </LinearGradient>
-        </>
+        </SafeAreaView>
     )
 }
 

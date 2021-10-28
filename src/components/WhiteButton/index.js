@@ -11,7 +11,7 @@ export default function WhiteButton({
     <View>
       <TouchableOpacity
         style={[styles.Button, style]}
-        onPress={onPress}
+        onPress={() => onPress()}
         activeOpacity={0.8}>
         <Text style={[{ color: '#B5C5DC', fontSize: 16 }, textStyle]}>{title}</Text>
       </TouchableOpacity>
