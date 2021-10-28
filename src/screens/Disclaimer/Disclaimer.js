@@ -22,10 +22,10 @@ const Disclaimer = ({ navigation, user }) => {
 
     return (
         <SafeAreaView style={{
-            flex:1
-        }}>  
+            flex: 1
+        }}>
             <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
-         
+
             <LinearGradient
                 style={styles.LinearGradient1}
                 colors={['#BFCCE0', '#F8F7F4']}>
@@ -53,7 +53,7 @@ const Disclaimer = ({ navigation, user }) => {
 
                     >
                         <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                            navigation.navigate('BOB')
+                            // navigation.navigate('BOB')
 
                         }}
 
@@ -61,7 +61,7 @@ const Disclaimer = ({ navigation, user }) => {
                             imgStyle={{
                                 height: 40,
                                 width: 40,
-                                marginLeft:5
+                                marginLeft: 5
 
                             }}
                         />
@@ -71,7 +71,7 @@ const Disclaimer = ({ navigation, user }) => {
 
             </LinearGradient>
 
-            </SafeAreaView>
+        </SafeAreaView>
     )
 }
 
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height / 2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center'

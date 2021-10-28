@@ -19,32 +19,32 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
 
-const Burn = ({navigation}) => {
+const Burn = ({ navigation }) => {
 
     const fadeAnim = useRef(new Animated.Value(0)).current;
-  const fadeIn = () => {
-    SetShowBurn(true)
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: true
-    }).start();
+    const fadeIn = () => {
+        SetShowBurn(true)
+        Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 1000,
+            useNativeDriver: true
+        }).start();
 
-  };
+    };
 
-  const fadeOut = () => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 800,
-      useNativeDriver: true
-    }).start();
-  };
+    const fadeOut = () => {
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 800,
+            useNativeDriver: true
+        }).start();
+    };
 
     const [isBurnIcon, SetShowBurn] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
-            if(isBurnIcon) {
+            if (isBurnIcon) {
                 fadeOut()
                 SetShowBurn(false)
                 navigation.navigate('HowDoYouFeel')
@@ -56,8 +56,8 @@ const Burn = ({navigation}) => {
 
     return (
         <SafeAreaView style={{
-            flex:1
-        }}>  
+            flex: 1
+        }}>
             <StatusBar barStyle="dark-content" backgroundColor='#E6C5C0' />
             <LinearGradient
                 style={styles.LinearGradient1}
@@ -89,16 +89,16 @@ const Burn = ({navigation}) => {
                             <View
                                 style={[styles.centerImageViewStyle]}
                             >
-                                {!isBurnIcon ? 
-                                <Image source={require('../../assets/images/book.png')} style={{ width: 90, height: 86,}} /> 
-                                :
-                                <Animated.View style={[
-                                    {
-                                      opacity: fadeAnim, 
-                                    },                                                   
-                                  ]}>
-                                    <Image source={require('../../assets/Burn2.gif')} style={{ width: 90, height: 130,}} />
-                                </Animated.View>}
+                                {!isBurnIcon ?
+                                    <Image source={require('../../assets/images/book.png')} style={{ width: 90, height: 86, }} />
+                                    :
+                                    <Animated.View style={[
+                                        {
+                                            opacity: fadeAnim,
+                                        },
+                                    ]}>
+                                        <Image source={require('../../assets/Burn2.gif')} style={{ width: 90, height: 130, }} />
+                                    </Animated.View>}
                             </View>
                             <View
                                 style={styles.buttonViewStyle}
@@ -113,7 +113,7 @@ const Burn = ({navigation}) => {
                     </View>
                 </LinearGradient>
             </LinearGradient>
-            </SafeAreaView>
+        </SafeAreaView>
     )
 }
 
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height / 2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         // justifyContent: 'center'

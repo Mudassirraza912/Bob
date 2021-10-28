@@ -17,7 +17,7 @@ import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 
-const WhoIsBob = ({navigation}) => {
+const WhoIsBob = ({ navigation }) => {
     return (
         <SafeAreaView style={{
             flex:1
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     LinearGradient2: {
-        width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
+        width: '80%', height: height * 0.81, borderRadius: height / 2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center'

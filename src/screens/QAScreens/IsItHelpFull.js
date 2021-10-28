@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   View,
@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  Alert
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import RadioButton from '../../components/RadioButton/index'
@@ -22,14 +23,14 @@ const IsItHelpFull = ({ navigation, user }) => {
   const [enabled, setEnabled] = useState(null)
   return (
     <SafeAreaView style={{
-      flex:1
-  }}> 
+      flex: 1
+    }}>
       <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
       <LinearGradient
         style={styles.LinearGradient1}
         colors={['#B5C5DC', '#F8F7F4']}>
         <View style={styles.crossStyle}>
-          <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
+          <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
@@ -43,30 +44,30 @@ const IsItHelpFull = ({ navigation, user }) => {
             }}>
             {/* <Text style={styles.titleTextStyle}>We recommend {"\n"} you discuss this with {"\n"} a professional
             </Text> */}
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-              <RadioButton onPress={(e) => setEnabled(e)}  title="This was not helpful" title2="Thank you… now it makes sense" style={{width:250}} style2={{width:250}}/>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <RadioButton onPress={(e) => setEnabled(e)} title="This was not helpful" title2="Thank you… now it makes sense" style={{ width: 250 }} style2={{ width: 250 }} />
             </View>
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
-                imgStyle={{marginLeft:10}} 
+                imgStyle={{ marginLeft: 10 }}
                 onPress={() => {
-                  if(enabled == null) {
+                  if (enabled == null) {
                     Alert.alert("Alert", "Please select one!")
-                   }else {
-                     if(enabled == 0) {
-                        navigation.navigate('RecommendProfessional')
-                     }else {
-                       navigation.navigate('BOB')
-                     }
-                   }
+                  } else {
+                    if (enabled == 0) {
+                      navigation.navigate('RecommendProfessional')
+                    } else {
+                      navigation.navigate('BOB')
+                    }
+                  }
                 }}
               />
             </View>
           </View>
         </LinearGradient>
       </LinearGradient>
-      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: height/2,
+    borderRadius: height / 2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',

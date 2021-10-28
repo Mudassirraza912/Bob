@@ -122,7 +122,7 @@ const styles: any = StyleSheet.create({
     alignItems: 'flex-end'
   },
   LinearGradient2: {
-    width: '80%', height: height * 0.81, borderRadius: height/2, backgroundColor: 'transparent',
+    width: '80%', height: height * 0.81, borderRadius: height / 2, backgroundColor: 'transparent',
     overflow: 'hidden',
     alignItems: 'center',
     // justifyContent: 'center'
@@ -171,9 +171,9 @@ class VoiceRecorder extends Component<any, State> {
       isRecording: false,
       isRecordingComplete: false,
       isPlaying: false,
-      showDraggable   : true,
-      dropZoneValues  : null,
-      pan             : new Animated.ValueXY(),
+      showDraggable: true,
+      dropZoneValues: null,
+      pan: new Animated.ValueXY(),
       isTrash: false
     };
 
@@ -186,34 +186,34 @@ class VoiceRecorder extends Component<any, State> {
         android: (e: GestureResponderEvent, state: PanResponderGestureState) =>
           Math.abs(state.dx) > 10 || Math.abs(state.dy) > 10
       }),
-      onStartShouldSetPanResponder    : () => true,
-      onPanResponderMove              : Animated.event([null,{
-          dx  : this.state.pan.x,
-          dy  : this.state.pan.y
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([null, {
+        dx: this.state.pan.x,
+        dy: this.state.pan.y
       }]),
-      onPanResponderRelease           : (e, gesture) => {
-          if(this.isDropZone(gesture)){
-              // Alert.alert("DELETE IF")
-              this.setState({isTrash: true})
-              setTimeout(() => {
-                this.props.navigation.navigate('HowDoYouFeel')
-                this.setState({isTrash: false})
-              }, 1100)
-              Animated.spring(
-                this.state.pan,
-                {toValue:{x:0,y:0}, useNativeDriver: false}
-            ).start();
-              this.setState({
-                  showDraggable : false
-              });
-          }else{
-              Animated.spring(
-                  this.state.pan,
-                  {toValue:{x:0,y:0}, useNativeDriver: false}
-              ).start();
-          }
+      onPanResponderRelease: (e, gesture) => {
+        if (this.isDropZone(gesture)) {
+          // Alert.alert("DELETE IF")
+          this.setState({ isTrash: true })
+          setTimeout(() => {
+            this.props.navigation.navigate('HowDoYouFeel')
+            this.setState({ isTrash: false })
+          }, 1100)
+          Animated.spring(
+            this.state.pan,
+            { toValue: { x: 0, y: 0 }, useNativeDriver: false }
+          ).start();
+          this.setState({
+            showDraggable: false
+          });
+        } else {
+          Animated.spring(
+            this.state.pan,
+            { toValue: { x: 0, y: 0 }, useNativeDriver: false }
+          ).start();
+        }
       }
-  });
+    });
   }
 
   public render() {
@@ -269,24 +269,24 @@ class VoiceRecorder extends Component<any, State> {
                   </Text>
                 </View>
 
-                <View 
+                <View
                   onLayout={this.setDropZoneValues.bind(this)}
                   style={{
-                  height: height * 0.2,
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                    height: height * 0.2,
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
                 >
-                  <Image source={isRecordingComplete ? (isTrash ? require('../../assets/trash.gif') : require('../../assets/images/trash.png')) : require('../../assets/images/Line.png')} style={{ width: isRecordingComplete ? (!isTrash ? 89 : 139) : 200, height: isRecordingComplete ? (!isTrash ? 108 : 168) : 3 }} />
+                  <Image source={isRecordingComplete ? (isTrash ? require('../../assets/trash2.gif') : require('../../assets/images/trash.png')) : require('../../assets/images/Line.png')} style={{ width: isRecordingComplete ? (!isTrash ? 89 : 339) : 200, height: isRecordingComplete ? (!isTrash ? 108 : 368) : 3 }} />
                 </View>
 
-                {!(isRecordingComplete && !isPlaying) ? <View 
-                    style={[{
-                      height: isRecordingComplete ? height * 0.28 : height * 0.3,
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }]}
-                  >
+                {!(isRecordingComplete && !isPlaying) ? <View
+                  style={[{
+                    height: isRecordingComplete ? height * 0.28 : height * 0.3,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }]}
+                >
                   <NewmorphButton backgroundColor={isRecordingComplete ? '#E6C5C0' : '#C7D3E3'} onPress={() => {
                     if (!isRecording && !isRecordingComplete) {
                       this.onStartRecord()
@@ -306,9 +306,9 @@ class VoiceRecorder extends Component<any, State> {
                   />
                 </View >
 
-                :
-                 
-                <Animated.View 
+                  :
+
+                  <Animated.View
                     {...this.panResponder.panHandlers}
                     style={[this.state.pan.getLayout(), {
                       height: isRecordingComplete ? height * 0.28 : height * 0.3,
@@ -317,23 +317,23 @@ class VoiceRecorder extends Component<any, State> {
                     }]}
                   >
                     <AnimatedTouchable onPress={() => {
-                          if (isRecording && isRecordingComplete && !isPlaying) {
-                                console.log("onResumePlay")
-                                this.onResumePlay()
-                              } else {
-                                console.log("onResumePlay")
-                                this.onStartPlay()
-                              }
-                        }}>
-                          <NewmorphButton backgroundColor={isRecordingComplete ? '#E6C5C0' : '#C7D3E3'} 
-                          imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
-                          imgStyle={isRecording ? {
-                            height: 40,
-                            width: 40
-                          } : { width: 35, height: 56 }}
-                        />
+                      if (isRecording && isRecordingComplete && !isPlaying) {
+                        console.log("onResumePlay")
+                        this.onResumePlay()
+                      } else {
+                        console.log("onResumePlay")
+                        this.onStartPlay()
+                      }
+                    }}>
+                      <NewmorphButton backgroundColor={isRecordingComplete ? '#E6C5C0' : '#C7D3E3'}
+                        imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
+                        imgStyle={isRecording ? {
+                          height: 40,
+                          width: 40
+                        } : { width: 35, height: 56 }}
+                      />
                     </AnimatedTouchable>
-                </Animated.View >}
+                  </Animated.View >}
               </View>
             </LinearGradient>
           </LinearGradient>
@@ -492,18 +492,18 @@ class VoiceRecorder extends Component<any, State> {
   };
 
 
-  private isDropZone(gesture){
+  private isDropZone(gesture) {
     var dz = this.state.dropZoneValues;
     return gesture.moveY > dz.y + 100 && gesture.moveY < dz.y + (height * 0.50) - dz.height;
     // return gesture.moveY <= 395 && gesture.moveY >= 312;
 
-  } 
+  }
 
-  private setDropZoneValues(event){
-        this.setState({
-            dropZoneValues : event.nativeEvent.layout
-        });
-    }
+  private setDropZoneValues(event) {
+    this.setState({
+      dropZoneValues: event.nativeEvent.layout
+    });
+  }
 }
 
 export default VoiceRecorder;
