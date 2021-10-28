@@ -24,7 +24,9 @@ const BOB = ({ navigation, user }) => {
                 <View style={{ marginBottom: 20 }}>
                     <VentOut
                         decription={'Sample tools to calm down extreme emotions triggered in the moment'}
-                        imgIcon={require('../../assets/images/Group333.png')} title={'TRIGGERS'} />
+                        imgIcon={require('../../assets/images/Group333.png')}
+                        title={'TRIGGERS'}
+                        imgStyle={{ height: 45, width: 25}} />
                 </View>
                 <View style={{ marginBottom: 20 }}>
                     <VentOut imgStyle={{ height: 15, width: 45, marginTop: 20 }}
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         position: 'absolute',
         width: '100%',
-        bottom: 0,
+        bottom: 15,
         alignSelf: 'center'
     }
 })

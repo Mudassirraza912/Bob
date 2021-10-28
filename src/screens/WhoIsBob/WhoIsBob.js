@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     text1Style: {
         textAlign: 'center',
-        fontSize: 12,
+        fontSize: width/30,
         // lineHeight: 10,
         marginBottom: 15,
         color: '#706F93'

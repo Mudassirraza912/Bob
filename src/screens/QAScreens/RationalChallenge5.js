@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   View,
@@ -8,7 +8,8 @@ import {
   ImageBackground,
   StyleSheet,
   Dimensions,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import TextInputView from '../../components/TextInput/index'
@@ -22,7 +23,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 const RationalChallenge5 = ({ navigation, user }) => {
   const dispatch = useDispatch()
-
+  const [answer, setAnswer] = useState('')
   return (
     <SafeAreaView style={{
       flex:1
@@ -49,12 +50,13 @@ const RationalChallenge5 = ({ navigation, user }) => {
               <Text style={styles.QuestionTextStyle}>5. What’s another way to {'\n'}look at this situation?</Text>
               <View
                 style={{
-                  height: 200,
+                  // height: 200,
+                  marginVertical: 20,
                   width: 260,
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                <TextInputView />
+                <TextInputView onChange={(e) => setAnswer(e)} />
              
               </View>
 
@@ -68,7 +70,11 @@ const RationalChallenge5 = ({ navigation, user }) => {
                   backgroundColor="#C7D3E3"
                   imgStyle={{marginLeft:10}} 
                   onPress={() => {
-                    navigation.navigate('RationalChallenge6')
+                    if(answer) {
+                      navigation.navigate('RationalChallenge6')
+                    }else {
+                      Alert.alert("Alert", "Field is required")
+                    }
                   }}
                 />
                        {/* <WhiteButton title="Completed" textStyle={{ color: "#B5C5DC" }} onPress={() => {

@@ -23,7 +23,7 @@ export default function VentOut({
                     <Text style={{ fontSize: 20, color: "#FFFFFF",paddingLeft:4 }}>{title}</Text>
                 </View>
                 <View style={{flex:1.8, alignItems:"flex-end",justifyContent:"center"}}>
-                    <Image source={imgArrow} style={{ height: 30, width: 15, bottom : imgIcon != "" ? 13 :0}} />
+                    <Image source={imgArrow} style={{ height: 30, width: 15, bottom : imgIcon != "" ? 10 :0}} />
                 </View>
             </View>
                 <Text style={{color:"#575672",paddingVertical:10}}>{decription}</Text>

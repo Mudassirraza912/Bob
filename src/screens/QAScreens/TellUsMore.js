@@ -55,7 +55,7 @@ const TellUsMore = ({ navigation, user }) => {
                    Alert.alert("Alert", "Please Select one!")
                   }else {
                     if(enabled == 0) {
-                      Alert.alert("Featured Coming soon")
+                      Alert.alert("Coming soon")
                     }else {
                       navigation.navigate('RationalChallenge')
                     }

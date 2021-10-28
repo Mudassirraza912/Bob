@@ -8,11 +8,13 @@ export default function TextInputView({
     onPress = () => { },
     style={},
     style2={},
+    onChange= (e) => {}
  
 }) {
     return (
             <View>
                 <TextInput
+                    onChangeText={onChange}
                     style={styles.textArea}
                     underlineColorAndroid="transparent"
                     multiline={true}
@@ -28,7 +30,7 @@ export default function TextInputView({
 
 const styles = StyleSheet.create({
 textArea:{
-        width: Dimensions.get('window').width - 120,
+        width: Dimensions.get('window').width/1.4,
         height : Dimensions.get('window').height /4,
         fontSize:12,
         justifyContent: "flex-start",
