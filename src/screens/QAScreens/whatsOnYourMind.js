@@ -54,7 +54,7 @@ const WhatsOnYourMind = ({ navigation, user }) => {
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                <TextInputView />
+                <TextInputView value={answer} />
               </View>
 
               <View style={styles.buttonViewStyle}>

@@ -55,7 +55,7 @@ const RationalChallenge = ({ navigation, user }) => {
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                <TextInputView onChange={(e) => setAnswer(e)} />
+                <TextInputView onChange={(e) => setAnswer(e)} value={answer} />
              
               </View>
 

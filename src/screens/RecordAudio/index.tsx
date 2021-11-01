@@ -221,9 +221,6 @@ class VoiceRecorder extends Component<any, State> {
                 isRecording: false,
                 isRecordingComplete: false,
                 isPlaying: false,
-                showDraggable: true,
-                dropZoneValues: null,
-                pan: new Animated.ValueXY(),
                 isTrash: false
               })
               this.props.navigation.navigate('HowDoYouFeel')
