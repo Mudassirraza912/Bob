@@ -12,28 +12,28 @@ import BackButtonHandler from '../src/components/BackHandler';
 const App = () => {
 
 
-  BackButtonHandler('hardwareBackPress', async () => {
+  // BackButtonHandler('hardwareBackPress', async () => {
 
 
-    Alert.alert(
-      'Exit App',
-      'Are you sure you want to exit App?',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => { },
-        },
-        {
-          text: 'OK',
-          onPress: () => {
-            BackHandler.exitApp();
+  //   Alert.alert(
+  //     'Exit App',
+  //     'Are you sure you want to exit App?',
+  //     [
+  //       {
+  //         text: 'Cancel',
+  //         onPress: () => { },
+  //       },
+  //       {
+  //         text: 'OK',
+  //         onPress: () => {
+  //           BackHandler.exitApp();
 
-          },
-        },
-      ],
-    );
+  //         },
+  //       },
+  //     ],
+  //   );
 
-  });
+  // });
 
   return (
     <>

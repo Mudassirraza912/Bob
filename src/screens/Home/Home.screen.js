@@ -7,22 +7,52 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  BackHandler,
+  Alert
 } from 'react-native'
 import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 
 const { width, height } = Dimensions.get('window')
+import BackButtonHandler from '../../components/BackHandler';
+
 
 const Home = ({ navigation, user }) => {
   const dispatch = useDispatch()
+
+
+
+  // BackButtonHandler('hardwareBackPress', async () => {
+
+
+  //   Alert.alert(
+  //     'Exit App',
+  //     'Are you sure you want to exit App?',
+  //     [
+  //       {
+  //         text: 'Cancel',
+  //         onPress: () => { },
+  //       },
+  //       {
+  //         text: 'OK',
+  //         onPress: () => {
+  //           BackHandler.exitApp();
+
+  //         },
+  //       },
+  //     ],
+  //   );
+
+  // });
+
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
-      
+
       <SafeAreaView style={styles.SafeAreaView2}>
         <ImageBackground source={require('../../assets/images/earBack.png')} style={styles.imgBackground}>
-          <View style={{ paddingVertical: height/12, alignItems: 'center' }}>
+          <View style={{ paddingVertical: height / 12, alignItems: 'center' }}>
             <View>
               <Text style={styles.nameTxt}>
                 Hey Daniel
@@ -41,7 +71,7 @@ const Home = ({ navigation, user }) => {
           </View>
 
           <View style={styles.bottomBtn}>
-            <NewmorphButton backgroundColor="#B5C5DC"  imgStyle={{marginLeft:10}}  onPress={() => {
+            <NewmorphButton backgroundColor="#B5C5DC" imgStyle={{ marginLeft: 10 }} onPress={() => {
               navigation.navigate('Disclaimer')
             }} />
 
@@ -67,8 +97,8 @@ const styles = StyleSheet.create({
   title: {
     color: '#49485F',
     fontSize: 48,
-    fontFamily:"OPTIMA"
-    
+    fontFamily: "OPTIMA"
+
   },
   tagline: {
     color: '#fff',
@@ -76,7 +106,7 @@ const styles = StyleSheet.create({
   },
   bottomBtn: {
     position: 'absolute',
-    bottom: height/10
+    bottom: height / 10
   }
 })
 
@@ -91,14 +121,14 @@ export default connect(mapStateToProps, null)(Home)
 
 
 // import React,{ Component } from 'react';
-// import { 
+// import {
 //     StyleSheet,
 //     View,
 //     Text,
 //     PanResponder,
 //     Animated,
 //     Easing,
-//     Dimensions 
+//     Dimensions
 // } from 'react-native';
 
 // export default class Home extends Component{
@@ -146,7 +176,7 @@ export default connect(mapStateToProps, null)(Home)
 //     render(){
 //         return (
 //             <View style={styles.mainContainer}>
-//                 <View 
+//                 <View
 //                     onLayout={this.setDropZoneValues.bind(this)}
 //                     style={styles.dropZone}>
 //                     <Text style={styles.text}>Drop me here!</Text>
@@ -161,7 +191,7 @@ export default connect(mapStateToProps, null)(Home)
 //         if(this.state.showDraggable){
 //             return (
 //                 <View style={styles.draggableContainer}>
-                    // <Animated.View 
+                    // <Animated.View
                     //     {...this.panResponder.panHandlers}
                     //     style={[this.state.pan.getLayout(), styles.circle]}>
 //                         <Text style={styles.text}>Drag me!</Text>
