@@ -5,9 +5,10 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
-  Alert ,
+  Alert,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  BackHandler
 } from 'react-native'
 const { width, height } = Dimensions.get('window')
 import RadioButton from '../../components/RadioButton/index'
@@ -16,15 +17,40 @@ import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient'
 import Feather from 'react-native-vector-icons/Feather'
+import BackButtonHandler from '../../components/BackHandler';
 
-const HowDoYouFeel = ({ navigation, user }) => {
+
+const HowDoYouFeel = ({ navigation, user, route }) => {
+  const fromBurn = route?.params?.fromBurn
+
   const dispatch = useDispatch()
   const [enabled, setEnabled] = useState(null)
 
+
+
+
+  BackButtonHandler('hardwareBackPress', async () => {
+    if (navigation.isFocused()) {
+
+      if (fromBurn) {
+        navigation.navigate('Write', {
+          fromHowDoYouFeel: true
+        })
+      }
+      else {
+        navigation.goBack()
+      }
+    } else {
+      navigation.goBack()
+    }
+
+
+
+  });
   return (
     <SafeAreaView style={{
-      flex:1
-  }}>  
+      flex: 1
+    }}>
       <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
       <LinearGradient
         style={styles.LinearGradient1}
@@ -44,29 +70,29 @@ const HowDoYouFeel = ({ navigation, user }) => {
             }}>
             <Text style={styles.titleTextStyle}>How do you feel?</Text>
             <View>
-              <RadioButton onPress={(e) => setEnabled(e)} style={{marginVertical:5}} />
+              <RadioButton onPress={(e) => setEnabled(e)} style={{ marginVertical: 5 }} />
             </View>
             <View style={styles.buttonViewStyle}>
               <NewmorphButton
                 backgroundColor="#C7D3E3"
-                imgStyle={{marginLeft:10}} 
+                imgStyle={{ marginLeft: 10 }}
                 onPress={() => {
-                  if(enabled == null) {
+                  if (enabled == null) {
                     Alert.alert("Alert", "Please Select one!")
-                   }else {
-                     if(enabled == 0) {
-                        navigation.navigate('TellUsMore')
-                     }else {
-                       navigation.navigate('BOB')
-                     }
-                   }
+                  } else {
+                    if (enabled == 0) {
+                      navigation.navigate('TellUsMore')
+                    } else {
+                      navigation.navigate('BOB')
+                    }
+                  }
                 }}
               />
             </View>
           </View>
         </LinearGradient>
       </LinearGradient>
-      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 
@@ -84,7 +110,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: height/2,
+    borderRadius: height / 2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',

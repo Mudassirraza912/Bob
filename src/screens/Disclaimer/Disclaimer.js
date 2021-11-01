@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     SafeAreaView,
     View,
@@ -8,6 +8,8 @@ import {
     ImageBackground,
     StyleSheet,
     Dimensions,
+    BackHandler,
+    Alert
 
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
@@ -16,9 +18,47 @@ import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
+import BackButtonHandler from '../../components/BackHandler';
 
 const Disclaimer = ({ navigation, user }) => {
     const dispatch = useDispatch()
+
+
+    useEffect(() => {
+
+
+        navigation.addListener('focus', () => {
+            console.log('navigation', navigation.isFocused())
+        });
+    }, []);
+
+    BackButtonHandler('hardwareBackPress', async () => {
+        if (navigation.isFocused()) {
+
+            Alert.alert(
+                'Exit App',
+                'Are you sure you want to exit App?',
+                [
+                    {
+                        text: 'Cancel',
+                        onPress: () => { },
+                    },
+                    {
+                        text: 'OK',
+                        onPress: () => {
+                            BackHandler.exitApp();
+
+                        },
+                    },
+                ],
+            );
+        } else {
+            navigation.goBack()
+        }
+
+
+
+    });
 
     return (
         <SafeAreaView style={{

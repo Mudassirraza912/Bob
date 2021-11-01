@@ -8,6 +8,8 @@ import {
     ImageBackground,
     StyleSheet,
     Dimensions,
+    BackHandler,
+    Alert
 
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
@@ -18,10 +20,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 
 const WhoIsBob = ({ navigation }) => {
+
     return (
         <SafeAreaView style={{
-            flex:1
-        }}>  
+            flex: 1
+        }}>
             <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
             <LinearGradient
                 style={styles.LinearGradient1}
@@ -68,7 +71,7 @@ const WhoIsBob = ({ navigation }) => {
 
             </LinearGradient>
 
-            </SafeAreaView>
+        </SafeAreaView>
     )
 }
 
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     },
     text1Style: {
         textAlign: 'center',
-        fontSize: width/30,
+        fontSize: width / 30,
         // lineHeight: 10,
         marginBottom: 15,
         color: '#706F93'
