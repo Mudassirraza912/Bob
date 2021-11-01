@@ -31,6 +31,7 @@ import Record from '../Record/Record';
 import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
+import Sound from 'react-native-sound';
 
 const { width, height } = Dimensions.get('window');
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
@@ -147,7 +148,7 @@ interface State {
 }
 
 const screenWidth = Dimensions.get('screen').width;
-
+const TrashAudio= Platform.OS == "android"  ? "audio_trash.mp3" : "Audio_Trash.m4a"
 class VoiceRecorder extends Component<any, State> {
   private dirs = RNFetchBlob.fs.dirs;
   private path = Platform.select({
@@ -157,7 +158,7 @@ class VoiceRecorder extends Component<any, State> {
 
   private audioRecorderPlayer: AudioRecorderPlayer;
   private panResponder: PanResponder
-
+  private soundPlayer: Sound
   constructor(props: any) {
     super(props);
     this.state = {
@@ -179,6 +180,13 @@ class VoiceRecorder extends Component<any, State> {
 
     this.audioRecorderPlayer = new AudioRecorderPlayer();
     this.audioRecorderPlayer.setSubscriptionDuration(0.1); // optional. Default is 0.5
+    this.soundPlayer = new Sound(TrashAudio, Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+  }
+  )
 
     this.panResponder = PanResponder.create({
       onMoveShouldSetPanResponder: Platform.select({
@@ -193,12 +201,16 @@ class VoiceRecorder extends Component<any, State> {
       }]),
       onPanResponderRelease: (e, gesture) => {
         if (this.isDropZone(gesture)) {
+          this.soundPlayer.play((e) => {console.log(e)})
           // Alert.alert("DELETE IF")
           this.setState({ isTrash: true })
           setTimeout(() => {
-            this.props.navigation.navigate('HowDoYouFeel')
+            this.soundPlayer.stop()
             this.setState({ isTrash: false })
-          }, 1100)
+            setTimeout(() => {
+              this.props.navigation.navigate('HowDoYouFeel')
+            }, 250)
+          }, 1600)
           Animated.spring(
             this.state.pan,
             { toValue: { x: 0, y: 0 }, useNativeDriver: false }

@@ -46,7 +46,7 @@ const WhatsOnYourMind = ({ navigation, user }) => {
                 marginTop: 20
               }}>
               <Image source={require('../../assets/images/pencil2.png')} style={{ width: 42, height: 57 }} />
-              <Text style={styles.QuestionTextStyle}>What is on your {"\n"}mind </Text>
+              <Text style={styles.QuestionTextStyle}>What is on your {"\n"}mind Daniel?</Text>
               <View
                 style={{
                   height: 250,

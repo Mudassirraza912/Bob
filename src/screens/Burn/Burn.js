@@ -9,20 +9,43 @@ import {
     StyleSheet,
     Dimensions,
     Image,
-    Animated
+    Animated,
+    Platform
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
+
+import AudioRecorderPlayer, {
+    AVEncoderAudioQualityIOSType,
+    AVEncodingOption,
+    AudioEncoderAndroidType,
+    AudioSet,
+    AudioSourceAndroidType,
+    PlayBackType,
+    RecordBackType,
+  } from 'react-native-audio-recorder-player';
 
 import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
+import Sound from 'react-native-sound';
 
 const Burn = ({ navigation }) => {
 
+    const audioRecorderPlayer = new AudioRecorderPlayer();
     const fadeAnim = useRef(new Animated.Value(0)).current;
-    const fadeIn = () => {
+    const fileName = Platform.OS == "android" ? 'burning_paper.mp3':'Burning_Paper.m4a'
+    const soundBurn = new Sound(fileName, Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+    }
+    )
+
+    const fadeIn = async () => {
+        soundBurn.play((e) => {console.log("onEnd e", e)})
         SetShowBurn(true)
         Animated.timing(fadeAnim, {
             toValue: 1,
@@ -46,13 +69,15 @@ const Burn = ({ navigation }) => {
         setTimeout(() => {
             if (isBurnIcon) {
                 fadeOut()
+                soundBurn.stop()
                 SetShowBurn(false)
-                navigation.navigate('HowDoYouFeel')
+                setTimeout(() => {
+                    navigation.navigate('HowDoYouFeel') 
+                }, 250)
             }
-        }, 1200)
+        }, 1800)
     }, [isBurnIcon])
 
-    console.log("isBurnIcon", isBurnIcon)
 
     return (
         <SafeAreaView style={{
@@ -97,16 +122,14 @@ const Burn = ({ navigation }) => {
                                             opacity: fadeAnim,
                                         },
                                     ]}>
-                                        <Image source={require('../../assets/Burn2.gif')} style={{ width: 90, height: 130, }} />
+                                        <Image source={require('../../assets/flame.gif')} style={{ width: 375, height: 812, }} />
                                     </Animated.View>}
                             </View>
                             <View
                                 style={styles.buttonViewStyle}
 
                             >
-                                {/* <WhiteButton onPress={fadeIn} title="Burn" textStyle={{ color: "#E39684" }} /> */}
-                                <WhiteButton onPress={() => fadeIn()} title="Burn" textStyle={{ color: "#E39684" }} />
-
+                                {!isBurnIcon && <WhiteButton onPress={() => fadeIn()} title="Burn" textStyle={{ color: "#E39684" }} />}
                             </View>
                         </ImageBackground>
 

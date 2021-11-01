@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BobTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BobTests.m */; };
+		1221A9B9272C243100032ABC /* burning_paper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1221A9B8272C243100032ABC /* burning_paper.mp3 */; };
+		1221A9BB272C310100032ABC /* Audio_Trash.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1221A9BA272C310100032ABC /* Audio_Trash.m4a */; };
 		128348AC2727E7CD00C723AC /* Bob-Bridging-Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128348AB2727E7CD00C723AC /* Bob-Bridging-Header.swift */; };
+		12CA49B9272C1B2E00F59BCE /* Burning_Paper.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12CA49B8272C1B2E00F59BCE /* Burning_Paper.m4a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -34,8 +37,11 @@
 		012E35F4A32643CF93C0A6FF /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		04DD6FB05DF44E9CB3F81C3A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		058DA15631F7C1D4CC7F0BFF /* libPods-Bob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1221A9B8272C243100032ABC /* burning_paper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = burning_paper.mp3; path = ../android/app/src/main/res/raw/burning_paper.mp3; sourceTree = "<group>"; };
+		1221A9BA272C310100032ABC /* Audio_Trash.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Audio_Trash.m4a; path = ../src/assets/Audio_Trash.m4a; sourceTree = "<group>"; };
 		128348AA2727E7CC00C723AC /* Bob-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bob-Bridging-Header.h"; sourceTree = "<group>"; };
 		128348AB2727E7CD00C723AC /* Bob-Bridging-Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bob-Bridging-Header.swift"; sourceTree = "<group>"; };
+		12CA49B8272C1B2E00F59BCE /* Burning_Paper.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Burning_Paper.m4a; path = ../src/assets/Burning_Paper.m4a; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Bob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Bob/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Bob/AppDelegate.m; sourceTree = "<group>"; };
@@ -160,6 +166,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				1221A9BA272C310100032ABC /* Audio_Trash.m4a */,
+				12CA49B8272C1B2E00F59BCE /* Burning_Paper.m4a */,
 				128348AB2727E7CD00C723AC /* Bob-Bridging-Header.swift */,
 				13B07FAE1A68108700A75B9A /* Bob */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -169,6 +177,7 @@
 				9D99EFB88CE967F01FA586FB /* Pods */,
 				7727A08AD60A42FE80773481 /* Resources */,
 				128348AA2727E7CC00C723AC /* Bob-Bridging-Header.h */,
+				1221A9B8272C243100032ABC /* burning_paper.mp3 */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -291,6 +300,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				1221A9BB272C310100032ABC /* Audio_Trash.m4a in Resources */,
+				12CA49B9272C1B2E00F59BCE /* Burning_Paper.m4a in Resources */,
+				1221A9B9272C243100032ABC /* burning_paper.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
