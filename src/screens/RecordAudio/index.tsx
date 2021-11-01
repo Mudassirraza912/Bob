@@ -144,7 +144,8 @@ interface State {
   showDraggable: boolean;
   dropZoneValues: any;
   pan: any;
-  isTrash: boolean
+  isTrash: boolean;
+  paused: boolean
 }
 
 const screenWidth = Dimensions.get('screen').width;
@@ -175,7 +176,8 @@ class VoiceRecorder extends Component<any, State> {
       showDraggable: true,
       dropZoneValues: null,
       pan: new Animated.ValueXY(),
-      isTrash: false
+      isTrash: false,
+      paused: false
     };
 
     this.audioRecorderPlayer = new AudioRecorderPlayer();
@@ -229,7 +231,7 @@ class VoiceRecorder extends Component<any, State> {
   }
 
   public render() {
-    const { isRecording, isRecordingComplete, isPlaying, duration, playTime, recordTime, isTrash } = this.state
+    const { isRecording, isRecordingComplete, isPlaying, duration, playTime, paused, isTrash } = this.state
     let playWidth =
       (this.state.currentPositionSec / this.state.currentDurationSec) *
       (screenWidth - 56);
@@ -329,11 +331,11 @@ class VoiceRecorder extends Component<any, State> {
                     }]}
                   >
                     <AnimatedTouchable onPress={() => {
-                      if (isRecording && isRecordingComplete && !isPlaying) {
+                      console.log("isRecording && isRecordingComplete && !isPlaying", isRecording , isRecordingComplete ,isPlaying)
+                      if (paused) {
                         console.log("onResumePlay")
                         this.onResumePlay()
                       } else {
-                        console.log("onResumePlay")
                         this.onStartPlay()
                       }
                     }}>
@@ -487,14 +489,16 @@ class VoiceRecorder extends Component<any, State> {
     console.log("onPausePlay")
     await this.audioRecorderPlayer.pausePlayer();
     this.setState({
-      isPlaying: !this.state.isPlaying
+      isPlaying: !this.state.isPlaying,
+      paused: true
     })
   };
 
   private onResumePlay = async () => {
     await this.audioRecorderPlayer.resumePlayer();
     this.setState({
-      isPlaying: !this.state.isPlaying
+      isPlaying: !this.state.isPlaying,
+      paused: false
     })
   };
 
