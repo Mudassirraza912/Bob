@@ -26,13 +26,13 @@ import { useFocusEffect } from '@react-navigation/core';
 const Write = ({ navigation, user, route }) => {
     const fromHowDoYouFeel = route?.params?.fromHowDoYouFeel
     console.log('fromHowDoYouFeel ', fromHowDoYouFeel)
-    const [answer, setAnswer] = useState()
-    useFocusEffect(() => {
-        console.log("asd")
-        if (fromHowDoYouFeel) {
-            setAnswer('')
-        }
-    })
+    const [answer, setAnswer] = useState("")
+    // useFocusEffect(() => {
+    //     console.log("asd")
+    //     if (fromHowDoYouFeel) {
+    //         setAnswer('')
+    //     }
+    // })
 
 
     return (
