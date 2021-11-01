@@ -207,7 +207,9 @@ class VoiceRecorder extends Component<any, State> {
           setTimeout(() => {
             this.soundPlayer.stop()
             this.setState({ isTrash: false })
-            this.props.navigation.navigate('HowDoYouFeel')
+            setTimeout(() => {
+              this.props.navigation.navigate('HowDoYouFeel')
+            }, 250)
           }, 1600)
           Animated.spring(
             this.state.pan,
@@ -305,7 +307,7 @@ class VoiceRecorder extends Component<any, State> {
                     } else if (isRecording && isRecordingComplete && isPlaying) {
                       this.onPausePlay()
                     } else {
-                      this.onStartPlay()
+                      this.onPausePlay()
                     }
                   }}
                     imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
@@ -482,6 +484,7 @@ class VoiceRecorder extends Component<any, State> {
   };
 
   private onPausePlay = async () => {
+    console.log("onPausePlay")
     await this.audioRecorderPlayer.pausePlayer();
     this.setState({
       isPlaying: !this.state.isPlaying

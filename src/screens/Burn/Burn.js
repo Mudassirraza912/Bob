@@ -71,7 +71,9 @@ const Burn = ({ navigation }) => {
                 fadeOut()
                 soundBurn.stop()
                 SetShowBurn(false)
-                navigation.navigate('HowDoYouFeel')
+                setTimeout(() => {
+                    navigation.navigate('HowDoYouFeel') 
+                }, 250)
             }
         }, 1800)
     }, [isBurnIcon])
@@ -127,9 +129,7 @@ const Burn = ({ navigation }) => {
                                 style={styles.buttonViewStyle}
 
                             >
-                                {/* <WhiteButton onPress={fadeIn} title="Burn" textStyle={{ color: "#E39684" }} /> */}
-                                <WhiteButton onPress={() => fadeIn()} title="Burn" textStyle={{ color: "#E39684" }} />
-
+                                {!isBurnIcon && <WhiteButton onPress={() => fadeIn()} title="Burn" textStyle={{ color: "#E39684" }} />}
                             </View>
                         </ImageBackground>
 
