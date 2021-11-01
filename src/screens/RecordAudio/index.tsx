@@ -148,7 +148,7 @@ interface State {
 }
 
 const screenWidth = Dimensions.get('screen').width;
-const TrashAudio= Platform.OS == "android"  ? "audio_trash.mp3" : "Audio_Trash.m4a"
+const TrashAudio = Platform.OS == "android" ? "audio_trash.mp3" : "Audio_Trash.m4a"
 class VoiceRecorder extends Component<any, State> {
   private dirs = RNFetchBlob.fs.dirs;
   private path = Platform.select({
@@ -185,8 +185,8 @@ class VoiceRecorder extends Component<any, State> {
         console.log('failed to load the sound', error);
         return;
       }
-  }
-  )
+    }
+    )
 
     this.panResponder = PanResponder.create({
       onMoveShouldSetPanResponder: Platform.select({
@@ -201,13 +201,29 @@ class VoiceRecorder extends Component<any, State> {
       }]),
       onPanResponderRelease: (e, gesture) => {
         if (this.isDropZone(gesture)) {
-          this.soundPlayer.play((e) => {console.log(e)})
+          this.soundPlayer.play((e) => { console.log(e) })
           // Alert.alert("DELETE IF")
           this.setState({ isTrash: true })
           setTimeout(() => {
             this.soundPlayer.stop()
             this.setState({ isTrash: false })
             setTimeout(() => {
+              this.setState({
+                isLoggingIn: false,
+                recordSecs: 0,
+                recordTime: '00:00:00',
+                currentPositionSec: 0,
+                currentDurationSec: 0,
+                playTime: '00:00:00',
+                duration: '00:00:00',
+                isRecording: false,
+                isRecordingComplete: false,
+                isPlaying: false,
+                showDraggable: true,
+                dropZoneValues: null,
+                pan: new Animated.ValueXY(),
+                isTrash: false
+              })
               this.props.navigation.navigate('HowDoYouFeel')
             }, 250)
           }, 1600)

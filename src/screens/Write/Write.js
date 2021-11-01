@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     SafeAreaView,
     View,
@@ -21,9 +21,20 @@ import Feather from 'react-native-vector-icons/Feather'
 import WhiteButton from '../../components/WhiteButton'
 import TextInputView from '../../components/TextInput';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useFocusEffect } from '@react-navigation/core';
 
-const Write = ({ navigation, user }) => {
-    const [answer, setAnswer] = useState('')
+const Write = ({ navigation, user, route }) => {
+    const fromHowDoYouFeel = route?.params?.fromHowDoYouFeel
+    console.log('fromHowDoYouFeel ', fromHowDoYouFeel)
+    const [answer, setAnswer] = useState()
+    useFocusEffect(() => {
+        console.log("asd")
+        if (fromHowDoYouFeel) {
+            setAnswer('')
+        }
+    })
+
+
     return (
         <SafeAreaView style={{
             flex: 1
@@ -60,7 +71,7 @@ const Write = ({ navigation, user }) => {
                             <View
                                 style={styles.centerImageViewStyle}
                             >
-                                <TextInputView onChange={e => setAnswer(e)} />
+                                <TextInputView onChange={e => setAnswer(e)} value={answer} />
                             </View>
                             <View
                                 style={styles.buttonViewStyle}

@@ -22,7 +22,7 @@ import AudioRecorderPlayer, {
     AudioSourceAndroidType,
     PlayBackType,
     RecordBackType,
-  } from 'react-native-audio-recorder-player';
+} from 'react-native-audio-recorder-player';
 
 import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
@@ -35,17 +35,17 @@ const Burn = ({ navigation }) => {
 
     const audioRecorderPlayer = new AudioRecorderPlayer();
     const fadeAnim = useRef(new Animated.Value(0)).current;
-    const fileName = Platform.OS == "android" ? 'burning_paper.mp3':'Burning_Paper.m4a'
+    const fileName = Platform.OS == "android" ? 'burning_paper.mp3' : 'Burning_Paper.m4a'
     const soundBurn = new Sound(fileName, Sound.MAIN_BUNDLE, (error) => {
         if (error) {
-          console.log('failed to load the sound', error);
-          return;
+            console.log('failed to load the sound', error);
+            return;
         }
     }
     )
 
     const fadeIn = async () => {
-        soundBurn.play((e) => {console.log("onEnd e", e)})
+        soundBurn.play((e) => { console.log("onEnd e", e) })
         SetShowBurn(true)
         Animated.timing(fadeAnim, {
             toValue: 1,
@@ -72,7 +72,9 @@ const Burn = ({ navigation }) => {
                 soundBurn.stop()
                 SetShowBurn(false)
                 setTimeout(() => {
-                    navigation.navigate('HowDoYouFeel') 
+                    navigation.navigate('HowDoYouFeel', {
+                        fromBurn: true
+                    })
                 }, 250)
             }
         }, 1800)
