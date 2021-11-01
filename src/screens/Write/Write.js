@@ -54,7 +54,7 @@ const Write = ({ navigation, user }) => {
                                 <Text
                                     style={styles.textStyle}
                                 >
-                                    mind Daniel?./
+                                    mind Daniel?
                                 </Text>
                             </View>
                             <View
