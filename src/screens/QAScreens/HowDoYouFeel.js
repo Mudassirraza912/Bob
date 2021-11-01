@@ -33,7 +33,7 @@ const HowDoYouFeel = ({ navigation, user, route }) => {
     if (navigation.isFocused()) {
 
       if (fromBurn) {
-        navigation.navigate('Write', {
+        navigation.replace('Write', {
           fromHowDoYouFeel: true
         })
       }
