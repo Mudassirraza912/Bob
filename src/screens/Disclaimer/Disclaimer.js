@@ -14,11 +14,13 @@ import {
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
+
 import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import BackButtonHandler from '../../components/BackHandler';
+import ImageZoom from 'react-native-image-pan-zoom';
 
 const Disclaimer = ({ navigation, user }) => {
     const dispatch = useDispatch()
@@ -66,50 +68,55 @@ const Disclaimer = ({ navigation, user }) => {
         }}>
             <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
 
+
             <LinearGradient
                 style={styles.LinearGradient1}
                 colors={['#BFCCE0', '#F8F7F4']}>
                 <View style={styles.crossStyle}>
                     <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
                 </View>
-                <LinearGradient
-                    style={styles.LinearGradient2}
-                    colors={['#F8F7F4', '#BFCCE0']}>
+                <ImageZoom cropWidth={Dimensions.get('window').width}
+                    cropHeight={Dimensions.get('window').height}
+                    imageWidth={360}
+                    imageHeight={700}
+                >
+                    <LinearGradient
+                        style={styles.LinearGradient2}
+                        colors={['#F8F7F4', '#BFCCE0']}>
 
-                    <Text style={styles.discliamerTextStyle}>Disclaimer</Text>
+                        <Text style={styles.discliamerTextStyle}>Disclaimer</Text>
 
-                    <View style={styles.centerTextViewStyle}>
-                        <Text style={styles.centerTextStyle}>BoB is your virtual companion in most situations, but in case
-                            you are experiencing extreme trauma, you are in danger, or you are at risk of self-harm, please tap on
-                            the phone below to contact your local emergency hotline.
-                        </Text>
-                    </View>
-
-
-                    <View
-
-                        style={styles.buttonViewStyle}
+                        <View style={styles.centerTextViewStyle}>
+                            <Text style={styles.centerTextStyle}>BoB is your virtual companion in most situations, but in case
+                                you are experiencing extreme trauma, you are in danger, or you are at risk of self-harm, please tap on
+                                the phone below to contact your local emergency hotline.
+                            </Text>
+                        </View>
 
 
-                    >
-                        <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                            // navigation.navigate('BOB')
+                        <View
 
-                        }}
-
-                            imgPath={require('../../assets/images/phone.png')}
-                            imgStyle={{
-                                height: 40,
-                                width: 40,
-                                marginLeft: 5
+                            style={styles.buttonViewStyle}>
+                            <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
+                                // navigation.navigate('BOB')
 
                             }}
-                        />
-                    </View>
 
-                </LinearGradient>
+                                imgPath={require('../../assets/images/phone.png')}
+                                imgStyle={{
+                                    height: 40,
+                                    width: 40,
+                                    marginLeft: 5
 
+                                }}
+                            />
+                        </View>
+
+                    </LinearGradient>
+                </ImageZoom>
             </LinearGradient>
+
+
 
         </SafeAreaView>
     )
@@ -129,7 +136,9 @@ const styles = StyleSheet.create({
         width: '80%', height: height * 0.81, borderRadius: height / 2, backgroundColor: 'transparent',
         overflow: 'hidden',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginLeft: 35
+
     },
     discliamerTextStyle: {
         color: '#6B6B8D',
