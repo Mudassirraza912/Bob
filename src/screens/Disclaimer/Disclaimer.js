@@ -94,13 +94,12 @@ const Disclaimer = ({ navigation, user }) => {
                         </View>
 
 
-                        <View
-
+                        <TouchableOpacity
+                            activeOpacity={0.8}
                             style={styles.buttonViewStyle}>
-                            <NewmorphButton backgroundColor="#C7D3E3" onPress={() => {
-                                // navigation.navigate('BOB')
+                            <NewmorphButton backgroundColor="#C7D3E3"
 
-                            }}
+                                onPress={() => alert('hhuuh')}
 
                                 imgPath={require('../../assets/images/phone.png')}
                                 imgStyle={{
@@ -110,7 +109,7 @@ const Disclaimer = ({ navigation, user }) => {
 
                                 }}
                             />
-                        </View>
+                        </TouchableOpacity>
 
                     </LinearGradient>
                 </ImageZoom>
