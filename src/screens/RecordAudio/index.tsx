@@ -469,7 +469,7 @@ class VoiceRecorder extends Component<any, State> {
   };
 
   private onStartPlay = async () => {
-    console.log('onStartPlay');
+    console.log('onStartPlay', this.audioRecorderPlayer);
     //? Custom path
     // const msg = await this.audioRecorderPlayer.startPlayer(this.path);
 
