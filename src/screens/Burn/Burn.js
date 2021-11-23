@@ -109,23 +109,15 @@ const Burn = ({ navigation }) => {
                                 Burn your Note
                             </Text>
                         </View>
-                        <ImageBackground source={require('../../assets/images/flame.png')} style={{
+                       {!isBurnIcon ?
+                        <ImageBackground source={require('../../assets/images/flameCrop.png')} style={{
                             width: 270,
                             height: 404,
                         }}>
                             <View
                                 style={[styles.centerImageViewStyle]}
                             >
-                                {!isBurnIcon ?
                                     <Image source={require('../../assets/images/book.png')} style={{ width: 90, height: 86, }} />
-                                    :
-                                    <Animated.View style={[
-                                        {
-                                            opacity: fadeAnim,
-                                        },
-                                    ]}>
-                                        <Image source={require('../../assets/flame.gif')} style={{ width: 375, height: 812, }} />
-                                    </Animated.View>}
                             </View>
                             <View
                                 style={styles.buttonViewStyle}
@@ -134,6 +126,18 @@ const Burn = ({ navigation }) => {
                                 {!isBurnIcon && <WhiteButton onPress={() => fadeIn()} title="Burn" textStyle={{ color: "#E39684" }} />}
                             </View>
                         </ImageBackground>
+
+                        : 
+                        
+                        <View style={[styles.centerImageViewStyle]}>
+                            <Animated.View style={[
+                                {
+                                    opacity: fadeAnim,
+                                },
+                            ]}>
+                                <Image source={require('../../assets/flame.gif')} style={{ width: 375, height: 812, }} />
+                            </Animated.View>
+                        </View>}
 
                     </View>
                 </LinearGradient>
