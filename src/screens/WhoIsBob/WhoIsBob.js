@@ -77,7 +77,7 @@ const WhoIsBob = ({ navigation }) => {
                 <ImageZoom cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
                     imageWidth={360}
-                    imageHeight={700}
+                    imageHeight={670}
                 >
                     <LinearGradient
                         style={styles.LinearGradient2}
@@ -115,7 +115,7 @@ const WhoIsBob = ({ navigation }) => {
 
                         <View style={{
                             alignItems: 'center',
-                            marginTop: 25
+                            top: 20
                         }}>
                             <AntDesign onPress={() => {
                                 playSound()
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     },
     text1Style: {
         textAlign: 'center',
-        fontSize: width / 30,
+        fontSize: width / 31,
         // lineHeight: 10,
         marginBottom: 15,
         color: '#706F93'

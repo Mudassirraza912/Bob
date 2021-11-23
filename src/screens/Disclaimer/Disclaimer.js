@@ -107,7 +107,7 @@ const Disclaimer = ({ navigation, user }) => {
                 <ImageZoom cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
                     imageWidth={360}
-                    imageHeight={700}
+                    imageHeight={670}
                 >
                     <LinearGradient
                         style={styles.LinearGradient2}

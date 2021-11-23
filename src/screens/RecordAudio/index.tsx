@@ -211,6 +211,7 @@ class VoiceRecorder extends Component<any, State> {
             this.setState({ isTrash: false })
             setTimeout(() => {
               this.setState({
+                isTrash: false,
                 isLoggingIn: false,
                 recordSecs: 0,
                 recordTime: '00:00:00',
@@ -221,7 +222,6 @@ class VoiceRecorder extends Component<any, State> {
                 isRecording: false,
                 isRecordingComplete: false,
                 isPlaying: false,
-                isTrash: false
               })
               this.props.navigation.navigate('HowDoYouFeel')
             }, 250)
@@ -244,7 +244,7 @@ class VoiceRecorder extends Component<any, State> {
   }
 
   public render() {
-    const { isRecording, isRecordingComplete, isPlaying, duration, playTime, paused, isTrash } = this.state
+    const { isRecording, isRecordingComplete, isPlaying, duration, playTime, paused, isTrash, recordTime } = this.state
     let playWidth =
       (this.state.currentPositionSec / this.state.currentDurationSec) *
       (screenWidth - 56);
@@ -252,6 +252,7 @@ class VoiceRecorder extends Component<any, State> {
     if (!playWidth) {
       playWidth = 0;
     }
+
     return (
       <SafeAreaView style={styles.container}>
         <>
@@ -304,7 +305,8 @@ class VoiceRecorder extends Component<any, State> {
                     alignItems: 'center',
                   }}
                 >
-                  <Image source={isRecordingComplete ? (isTrash ? require('../../assets/trash2.gif') : require('../../assets/images/trash.png')) : require('../../assets/images/Line.png')} style={{ width: isRecordingComplete ? (!isTrash ? 89 : 339) : 200, height: isRecordingComplete ? (!isTrash ? 108 : 368) : 3 }} />
+                  <Image source={isRecordingComplete ? (isTrash ? require('../../assets/trash1.gif') : require('../../assets/images/trash.png')) : (isRecording ? require('../../assets/recordWave.gif') : require('../../assets/images/Line.png') )} style={{ width: isRecordingComplete ? (!isTrash ? 89 : 339) : (isRecording ? 300 : 200), height: isRecordingComplete ? (!isTrash ? 108 : 368) : (isRecording ? 50 : 3) }} />
+                  {isRecording && <Text style={{color: '#706F93', top: 20}}>{recordTime}</Text>}
                 </View>
 
                 {!(isRecordingComplete && !isPlaying) ? <View
@@ -325,13 +327,13 @@ class VoiceRecorder extends Component<any, State> {
                       this.onPausePlay()
                     }
                   }}
-                    imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
+                    imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pauseWave.png')) : (isRecording ? require('../../assets/images/box.png') : require('../../assets/images/circle.png'))}
                     imgStyle={isRecording ? {
                       height: 40,
                       width: 40
-                    } : { width: 35, height: 56 }}
+                    } : { width: 40, height: 40 }}
                   />
-                </View >
+                </View>
 
                   :
 
@@ -344,7 +346,7 @@ class VoiceRecorder extends Component<any, State> {
                     }]}
                   >
                     <AnimatedTouchable onPress={() => {
-                      console.log("isRecording && isRecordingComplete && !isPlaying", isRecording , isRecordingComplete ,isPlaying)
+                     
                       if (paused) {
                         console.log("onResumePlay")
                         this.onResumePlay()
@@ -353,11 +355,11 @@ class VoiceRecorder extends Component<any, State> {
                       }
                     }}>
                       <NewmorphButton backgroundColor={isRecordingComplete ? '#E6C5C0' : '#C7D3E3'}
-                        imgPath={isRecordingComplete ? (!isPlaying ? require('../../assets/images/play.png') : require('../../assets/images/pause.png')) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
+                        imgPath={isRecordingComplete ? (isTrash ? require('../../assets/images/circle.png') :  (!isPlaying ? require('../../assets/images/playWave.png') : require('../../assets/images/playWave.png'))) : (isRecording ? require('../../assets/images/circle.png') : require('../../assets/images/mike2.png'))}
                         imgStyle={isRecording ? {
                           height: 40,
                           width: 40
-                        } : { width: 35, height: 56 }}
+                        } : { width: 40, height: 40 }}
                       />
                     </AnimatedTouchable>
                   </Animated.View >}
@@ -483,7 +485,8 @@ class VoiceRecorder extends Component<any, State> {
     this.audioRecorderPlayer.addPlayBackListener((e: PlayBackType) => {
       if (this.audioRecorderPlayer.mmssss(Math.floor(e.duration)) == this.audioRecorderPlayer.mmssss(Math.floor(e.currentPosition))) {
         this.setState({
-          isPlaying: false
+          isPlaying: false,
+          paused: false
         })
         // this.props.navigation.navigate("HowDoYouFeel")
       }
