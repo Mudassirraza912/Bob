@@ -19,15 +19,29 @@ import { connect, useDispatch } from 'react-redux'
 import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 import BackButtonHandler from '../../components/BackHandler';
 import ImageZoom from 'react-native-image-pan-zoom';
+import Sound from 'react-native-sound';
+
+var soundPlayer: Sound;
 
 const Disclaimer = ({ navigation, user }) => {
     const dispatch = useDispatch()
+    const [play, setPlay] = useState(false)
+    const TrashAudio = Platform.OS == "android" ? "audio_trash.mp3" : "Audio_Trash.m4a"
+
 
 
     useEffect(() => {
 
+        soundPlayer = new Sound(TrashAudio, Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+                console.log('failed to load the sound', error);
+                return;
+            }
+        }
+        )
 
         navigation.addListener('focus', () => {
             console.log('navigation', navigation.isFocused())
@@ -62,6 +76,21 @@ const Disclaimer = ({ navigation, user }) => {
 
     });
 
+    const playSound = () => {
+
+        setPlay(!play)
+
+        if (!play) {
+            soundPlayer.play((e) => { console.log('play', e, setPlay(false)) })
+        }
+        else {
+            soundPlayer.pause((e) => { console.log(e) })
+        }
+
+
+
+    }
+
     return (
         <SafeAreaView style={{
             flex: 1
@@ -94,12 +123,14 @@ const Disclaimer = ({ navigation, user }) => {
                         </View>
 
 
+
+
                         <TouchableOpacity
                             activeOpacity={0.8}
                             style={styles.buttonViewStyle}>
                             <NewmorphButton backgroundColor="#C7D3E3"
 
-                                onPress={() => alert('hhuuh')}
+                                // onPress={() => alert('hhuuh')}
 
                                 imgPath={require('../../assets/images/phone.png')}
                                 imgStyle={{
@@ -110,6 +141,21 @@ const Disclaimer = ({ navigation, user }) => {
                                 }}
                             />
                         </TouchableOpacity>
+
+
+
+                        <View style={{
+                            alignItems: 'center',
+                            marginTop: 30
+                        }}>
+                            <AntDesign onPress={() => {
+                                playSound()
+
+
+
+                            }} name={play ? 'pause' : 'caretright'} size={30} color={'#A3A2BA'} />
+                        </View>
+
 
                     </LinearGradient>
                 </ImageZoom>
@@ -156,7 +202,10 @@ const styles = StyleSheet.create({
         lineHeight: 27,
     },
     buttonViewStyle: {
-        marginTop: height * 0.03
+        // marginTop: height * 0.03
+    },
+    buttonViewStyle1: {
+        // marginTop: 5
     }
 
 })
