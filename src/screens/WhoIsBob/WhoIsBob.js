@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     SafeAreaView,
     View,
@@ -19,10 +19,50 @@ import NewmorphButton from '../../components/NewmorphButton/index'
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather'
 import ImageZoom from 'react-native-image-pan-zoom';
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import Sound from 'react-native-sound';
 
+var soundPlayer: Sound;
 
 const WhoIsBob = ({ navigation }) => {
+    const [play, setPlay] = useState(false)
+    const TrashAudio = Platform.OS == "android" ? "audio_trash.mp3" : "Audio_Trash.m4a"
 
+
+
+
+    useEffect(() => {
+
+        soundPlayer = new Sound(TrashAudio, Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+                console.log('failed to load the sound', error);
+                return;
+            }
+        }
+        )
+
+    }, []);
+
+    // useEffect(() => {
+    //     soundPlayer.getDuration((e) => { console.log('duartion', e) })
+    // }, [])
+
+
+
+    const playSound = () => {
+
+        setPlay(!play)
+
+        if (!play) {
+            soundPlayer.play((e) => { console.log('play', e, setPlay(false)) })
+        }
+        else {
+            soundPlayer.pause((e) => { console.log('pause', e) })
+        }
+
+
+
+    }
     return (
         <SafeAreaView style={{
             flex: 1
@@ -71,6 +111,16 @@ const WhoIsBob = ({ navigation }) => {
 
 
                             </Text>
+                        </View>
+
+                        <View style={{
+                            alignItems: 'center',
+                            marginTop: 25
+                        }}>
+                            <AntDesign onPress={() => {
+                                playSound()
+
+                            }} name={play ? 'pause' : 'caretright'} size={30} color={'#A3A2BA'} />
                         </View>
 
 
