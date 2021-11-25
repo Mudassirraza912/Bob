@@ -9,7 +9,8 @@ export default function TextInputView({
     style = {},
     style2 = {},
     onChange = (e) => { },
-    value = ''
+    value = '',
+    onSubmitEditing = () => {}
 }) {
     return (
         <View>
@@ -18,11 +19,13 @@ export default function TextInputView({
                 style={styles.textArea}
                 underlineColorAndroid="transparent"
                 multiline={true} 
+                onSub
                 blurOnSubmit
                 numberOfLines={15}
                 value={value}
                 enablesReturnKeyAutomatically={true}
                 returnKeyType={'done'}
+                onSubmitEditing={onSubmitEditing}
             />
         </View>
 

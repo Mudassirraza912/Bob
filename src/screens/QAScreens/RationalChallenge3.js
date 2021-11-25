@@ -56,7 +56,14 @@ const RationalChallenge3 = ({ navigation, user }) => {
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                <TextInputView onChange={(e) => setAnswer(e)} value={answer} />
+                <TextInputView 
+                onSubmitEditing={() => {
+                    if(answer) {
+                      navigation.navigate('RationalChallenge4')
+                    }else {
+                      Alert.alert("Alert", "Field is required")
+                    }
+                  }} onChange={(e) => setAnswer(e)} value={answer} />
              
               </View>
 

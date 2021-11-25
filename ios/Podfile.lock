@@ -592,6 +592,7 @@ SPEC CHECKSUMS:
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OGReactNativeWaveform: f789fabadbf3904c7cba84d183405395861b8fed
+  OGReactNativeWaveform: 2c5a7564f84a53a7d5943d08a36669b3fc9881db
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   Permission-Microphone: 7b75718196244a6e59dd60f82f12962562c2ea12
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46

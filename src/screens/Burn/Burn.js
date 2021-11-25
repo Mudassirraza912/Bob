@@ -112,7 +112,7 @@ const Burn = ({ navigation }) => {
                        {!isBurnIcon ?
                         <ImageBackground source={require('../../assets/images/flameCrop.png')} style={{
                             width: 270,
-                            height: 404,
+                            height: height/1.9,
                         }}>
                             <View
                                 style={[styles.centerImageViewStyle]}
@@ -135,7 +135,7 @@ const Burn = ({ navigation }) => {
                                     opacity: fadeAnim,
                                 },
                             ]}>
-                                <Image source={require('../../assets/flame.gif')} style={{ width: 375, height: 812, }} />
+                                <Image source={require('../../assets/flame.gif')} style={{ width: 375, height: height, }} />
                             </Animated.View>
                         </View>}
 
