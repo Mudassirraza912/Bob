@@ -75,6 +75,8 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - libevent (2.1.12)
+  - OGReactNativeWaveform (2.0.5):
+    - React
   - OpenSSL-Universal (1.1.180)
   - Permission-Microphone (3.1.0):
     - RNPermissions
@@ -423,6 +425,7 @@ DEPENDENCIES:
   - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.93.0)
   - FlipperKit/SKIOSNetworkPlugin (= 0.93.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - OGReactNativeWaveform (from `../node_modules/react-native-audiowaveform`)
   - Permission-Microphone (from `../node_modules/react-native-permissions/ios/Microphone`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
@@ -492,6 +495,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  OGReactNativeWaveform:
+    :path: "../node_modules/react-native-audiowaveform"
   Permission-Microphone:
     :path: "../node_modules/react-native-permissions/ios/Microphone"
   RCT-Folly:
@@ -586,6 +591,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
+  OGReactNativeWaveform: 2c5a7564f84a53a7d5943d08a36669b3fc9881db
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   Permission-Microphone: 8d496c068d65f9d4ee599b0fdd7ada102a905acf
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46

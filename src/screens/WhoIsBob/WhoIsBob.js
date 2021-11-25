@@ -76,8 +76,8 @@ const WhoIsBob = ({ navigation }) => {
                 </View>
                 <ImageZoom cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
-                    imageWidth={360}
-                    imageHeight={670}
+                    imageWidth={Platform.OS == "android" ? 360 : 400}
+                    imageHeight={height}
                 >
                     <LinearGradient
                         style={styles.LinearGradient2}

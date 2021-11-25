@@ -305,7 +305,7 @@ class VoiceRecorder extends Component<any, State> {
                     alignItems: 'center',
                   }}
                 >
-                  <Image source={isRecordingComplete ? (isTrash ? require('../../assets/trash1.gif') : require('../../assets/images/trash.png')) : (isRecording ? require('../../assets/recordWave.gif') : require('../../assets/images/Line.png') )} style={{ width: isRecordingComplete ? (!isTrash ? 89 : 339) : (isRecording ? 300 : 200), height: isRecordingComplete ? (!isTrash ? 108 : 368) : (isRecording ? 50 : 3) }} />
+                  <Image source={isRecordingComplete ? (isTrash ? require('../../assets/trash3.gif') : require('../../assets/images/trash.png')) : (isRecording ? require('../../assets/recordWave.gif') : require('../../assets/images/Line.png') )} style={{ width: isRecordingComplete ? (!isTrash ? 89 : 339) : (isRecording ? 300 : 200), height: isRecordingComplete ? (!isTrash ? 108 : 368) : (isRecording ? 50 : 3) }} />
                   {isRecording && <Text style={{color: '#706F93', top: 20}}>{recordTime}</Text>}
                 </View>
 

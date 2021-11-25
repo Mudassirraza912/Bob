@@ -9,8 +9,9 @@ import {
     StyleSheet,
     Dimensions,
     BackHandler,
-    Alert
-
+    Alert,
+    Platform,
+    PermissionsAndroid
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
@@ -34,7 +35,7 @@ const Disclaimer = ({ navigation, user }) => {
 
 
     useEffect(() => {
-
+        getPermission()
         soundPlayer = new Sound(TrashAudio, Sound.MAIN_BUNDLE, (error) => {
             if (error) {
                 console.log('failed to load the sound', error);
@@ -47,6 +48,37 @@ const Disclaimer = ({ navigation, user }) => {
             console.log('navigation', navigation.isFocused())
         });
     }, []);
+
+    const getPermission = async () => {
+        if (Platform.OS === 'android') {
+            try {
+              const grants = await PermissionsAndroid.requestMultiple([
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+                PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+                PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+              ]);
+      
+              console.log('write external stroage', grants);
+      
+              if (
+                grants['android.permission.WRITE_EXTERNAL_STORAGE'] ===
+                PermissionsAndroid.RESULTS.GRANTED &&
+                grants['android.permission.READ_EXTERNAL_STORAGE'] ===
+                PermissionsAndroid.RESULTS.GRANTED &&
+                grants['android.permission.RECORD_AUDIO'] ===
+                PermissionsAndroid.RESULTS.GRANTED
+              ) {
+                console.log('permissions granted');
+              } else {
+                console.log('All required permissions not granted');
+                return;
+              }
+            } catch (err) {
+              console.warn(err);
+              return;
+            }
+    }
+}
 
     BackButtonHandler('hardwareBackPress', async () => {
         if (navigation.isFocused()) {
@@ -106,8 +138,8 @@ const Disclaimer = ({ navigation, user }) => {
                 </View>
                 <ImageZoom cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
-                    imageWidth={360}
-                    imageHeight={670}
+                    imageWidth={Platform.OS == "android" ? 360 : 400}
+                    imageHeight={height}
                 >
                     <LinearGradient
                         style={styles.LinearGradient2}
@@ -209,6 +241,7 @@ const styles = StyleSheet.create({
     }
 
 })
+
 
 const mapStateToProps = state => {
     return {
