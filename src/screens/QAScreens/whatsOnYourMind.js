@@ -54,7 +54,9 @@ const WhatsOnYourMind = ({ navigation, user }) => {
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                <TextInputView value={answer} />
+                <TextInputView onSubmitEditing={() => {
+                    navigation.navigate('Burn')
+                  }} value={answer} />
               </View>
 
               <View style={styles.buttonViewStyle}>
