@@ -19,7 +19,6 @@ export default function TextInputView({
                 style={styles.textArea}
                 underlineColorAndroid="transparent"
                 multiline={true} 
-                onSub
                 blurOnSubmit
                 numberOfLines={15}
                 value={value}

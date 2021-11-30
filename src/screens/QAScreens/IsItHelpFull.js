@@ -22,7 +22,7 @@ const IsItHelpFull = ({ navigation, user }) => {
   const dispatch = useDispatch()
   const [enabled, setEnabled] = useState(null)
   return (
-    <SafeAreaView style={{
+    <View style={{
       flex: 1
     }}>
       <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
@@ -67,7 +67,7 @@ const IsItHelpFull = ({ navigation, user }) => {
           </View>
         </LinearGradient>
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   crossStyle: {
     width: '85%',
 
-    marginTop: height * 0.02,
+    marginTop: height * 0.04,
     alignItems: 'flex-end'
   },
   LinearGradient2: {

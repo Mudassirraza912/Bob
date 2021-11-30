@@ -8,7 +8,7 @@ import {
   ImageBackground,
   StyleSheet,
   Dimensions,
-  BackHandler,
+  Platform,
   Alert
 } from 'react-native'
 import { connect, useDispatch } from 'react-redux'
@@ -50,9 +50,9 @@ const Home = ({ navigation, user }) => {
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
 
-      <SafeAreaView style={styles.SafeAreaView2}>
+      <View>
         <ImageBackground source={require('../../assets/images/earBack.png')} style={styles.imgBackground}>
-          <View style={{ paddingVertical: height / 12, alignItems: 'center' }}>
+          <View style={{ paddingVertical: height / 12, alignItems: 'center', marginVertical: Platform.OS == "android" ? 0 : 15}}>
             <View>
               <Text style={styles.nameTxt}>
                 Hey Daniel
@@ -78,7 +78,7 @@ const Home = ({ navigation, user }) => {
           </View>
 
         </ImageBackground>
-      </SafeAreaView>
+      </View>
       {/* <View>
             <NewmorphButton />
           </View> */}
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   bottomBtn: {
     position: 'absolute',
     bottom: height / 10
-  }
+  },
 })
 
 const mapStateToProps = state => {

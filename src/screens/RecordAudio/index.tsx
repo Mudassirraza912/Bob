@@ -119,7 +119,7 @@ const styles: any = StyleSheet.create({
   crossStyle: {
     width: '85%',
 
-    marginTop: height * 0.02,
+    marginTop: height * 0.04,
     alignItems: 'flex-end'
   },
   LinearGradient2: {
@@ -254,7 +254,7 @@ class VoiceRecorder extends Component<any, State> {
     }
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <>
           <StatusBar barStyle="dark-content" backgroundColor={isRecordingComplete ? '#E6C5C0' : '#BFCCE0'} />
           <LinearGradient
@@ -264,7 +264,14 @@ class VoiceRecorder extends Component<any, State> {
 
           >
             <View style={styles.crossStyle}>
-              <Feather onPress={() => this.props.navigation.goBack()} name={'x'} size={50} color={'#A3A2BA'} />
+              <Feather onPress={() => {
+                if(this.state.isRecording && !isRecordingComplete) {
+                  this.audioRecorderPlayer.stopRecorder()
+                  this.props.navigation.goBack()
+                }else {
+                  this.props.navigation.goBack()
+                }
+              }} name={'x'} size={50} color={'#A3A2BA'} />
             </View>
             <LinearGradient
               style={styles.LinearGradient2}
@@ -367,7 +374,7 @@ class VoiceRecorder extends Component<any, State> {
             </LinearGradient>
           </LinearGradient>
         </>
-      </SafeAreaView>
+      </View>
     );
   }
 

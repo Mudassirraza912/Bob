@@ -25,10 +25,10 @@ const RationalChallenge4 = ({ navigation, user }) => {
   const dispatch = useDispatch()
   const [answer, setAnswer] = useState('')
   return (
-    <SafeAreaView style={{
+    <View style={{
       flex:1
   }}>  
-      <ScrollView>
+      <ScrollView contentContainerStyle={{flexGrow:1}} showsVerticalScrollIndicator={false}> 
         <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
         <LinearGradient
           style={styles.LinearGradient1}
@@ -90,7 +90,7 @@ const RationalChallenge4 = ({ navigation, user }) => {
           </LinearGradient>
         </LinearGradient>
       </ScrollView>
-      </SafeAreaView>
+      </View>
   )
 }
 
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   crossStyle: {
     width: '85%',
 
-    marginTop: height * 0.02,
+    marginTop: height * 0.04,
     alignItems: 'flex-end'
   },
   LinearGradient2: {
