@@ -48,7 +48,7 @@ const HowDoYouFeel = ({ navigation, user, route }) => {
 
   });
   return (
-    <SafeAreaView style={{
+    <View style={{
       flex: 1
     }}>
       <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
@@ -92,7 +92,7 @@ const HowDoYouFeel = ({ navigation, user, route }) => {
           </View>
         </LinearGradient>
       </LinearGradient>
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   crossStyle: {
     width: '85%',
 
-    marginTop: height * 0.02,
+    marginTop: height * 0.04,
     alignItems: 'flex-end'
   },
   LinearGradient2: {

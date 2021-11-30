@@ -82,7 +82,7 @@ const Burn = ({ navigation }) => {
 
 
     return (
-        <SafeAreaView style={{
+        <View style={{
             flex: 1
         }}>
             <StatusBar barStyle="dark-content" backgroundColor='#E6C5C0' />
@@ -142,7 +142,7 @@ const Burn = ({ navigation }) => {
                     </View>
                 </LinearGradient>
             </LinearGradient>
-        </SafeAreaView>
+        </View>
     )
 }
 
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     crossStyle: {
         width: '85%',
 
-        marginTop: height * 0.02,
+        marginTop: height * 0.04,
         alignItems: 'flex-end'
     },
     LinearGradient2: {
