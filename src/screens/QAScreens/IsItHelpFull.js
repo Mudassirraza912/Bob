@@ -45,10 +45,26 @@ const IsItHelpFull = ({ navigation, user }) => {
             {/* <Text style={styles.titleTextStyle}>We recommend {"\n"} you discuss this with {"\n"} a professional
             </Text> */}
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <RadioButton onPress={(e) => setEnabled(e)} title="This was not helpful" title2="Thank you… now it makes sense" style={{ width: 250 }} style2={{ width: 250 }} />
+              <RadioButton onPress={(enabled) => {
+                if (enabled == null) {
+                  Alert.alert("Alert", "Please select one!")
+                } else {
+                  if (enabled == 0) {
+                    navigation.navigate('RecommendProfessional')
+                  } else {
+                    navigation.navigate('BOB')
+                  }
+                }
+              }
+
+                // setEnabled(e)
+
+
+
+              } title="This was not helpful" title2="Thank you… now it makes sense" style={{ width: 250 }} style2={{ width: 250 }} />
             </View>
             <View style={styles.buttonViewStyle}>
-              <NewmorphButton
+              {/* <NewmorphButton
                 backgroundColor="#C7D3E3"
                 imgStyle={{ marginLeft: 10 }}
                 onPress={() => {
@@ -62,7 +78,7 @@ const IsItHelpFull = ({ navigation, user }) => {
                     }
                   }
                 }}
-              />
+              /> */}
             </View>
           </View>
         </LinearGradient>

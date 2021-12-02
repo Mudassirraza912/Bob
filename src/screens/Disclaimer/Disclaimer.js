@@ -9,9 +9,8 @@ import {
     StyleSheet,
     Dimensions,
     BackHandler,
-    Alert,
-    Platform,
-    PermissionsAndroid
+    Alert
+
 } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
@@ -35,7 +34,7 @@ const Disclaimer = ({ navigation, user }) => {
 
 
     useEffect(() => {
-        getPermission()
+
         soundPlayer = new Sound(TrashAudio, Sound.MAIN_BUNDLE, (error) => {
             if (error) {
                 console.log('failed to load the sound', error);
@@ -48,37 +47,6 @@ const Disclaimer = ({ navigation, user }) => {
             console.log('navigation', navigation.isFocused())
         });
     }, []);
-
-    const getPermission = async () => {
-        if (Platform.OS === 'android') {
-            try {
-              const grants = await PermissionsAndroid.requestMultiple([
-                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-                PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-                PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-              ]);
-      
-              console.log('write external stroage', grants);
-      
-              if (
-                grants['android.permission.WRITE_EXTERNAL_STORAGE'] ===
-                PermissionsAndroid.RESULTS.GRANTED &&
-                grants['android.permission.READ_EXTERNAL_STORAGE'] ===
-                PermissionsAndroid.RESULTS.GRANTED &&
-                grants['android.permission.RECORD_AUDIO'] ===
-                PermissionsAndroid.RESULTS.GRANTED
-              ) {
-                console.log('permissions granted');
-              } else {
-                console.log('All required permissions not granted');
-                return;
-              }
-            } catch (err) {
-              console.warn(err);
-              return;
-            }
-    }
-}
 
     BackButtonHandler('hardwareBackPress', async () => {
         if (navigation.isFocused()) {
@@ -124,7 +92,7 @@ const Disclaimer = ({ navigation, user }) => {
     }
 
     return (
-        <View style={{
+        <SafeAreaView style={{
             flex: 1
         }}>
             <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
@@ -138,8 +106,8 @@ const Disclaimer = ({ navigation, user }) => {
                 </View>
                 <ImageZoom cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
-                    imageWidth={Platform.OS == "android" ? 360 : 400}
-                    imageHeight={height}
+                    imageWidth={360}
+                    imageHeight={700}
                 >
                     <LinearGradient
                         style={styles.LinearGradient2}
@@ -195,7 +163,7 @@ const Disclaimer = ({ navigation, user }) => {
 
 
 
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -206,7 +174,7 @@ const styles = StyleSheet.create({
     crossStyle: {
         width: '85%',
 
-        marginTop: height * 0.04,
+        marginTop: height * 0.02,
         alignItems: 'flex-end'
     },
     LinearGradient2: {
@@ -241,7 +209,6 @@ const styles = StyleSheet.create({
     }
 
 })
-
 
 const mapStateToProps = state => {
     return {

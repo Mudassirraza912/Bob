@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React, { useState } from 'react'
 import {
   SafeAreaView,
   View,
@@ -23,14 +23,14 @@ const RecommendProfessional = ({ navigation, user }) => {
   const [enabled, setEnabled] = useState(null)
   return (
     <View style={{
-      flex:1
-  }}> 
+      flex: 1
+    }}>
       <StatusBar barStyle="dark-content" backgroundColor={'#B5C5DC'} />
       <LinearGradient
         style={styles.LinearGradient1}
         colors={['#B5C5DC', '#F8F7F4']}>
         <View style={styles.crossStyle}>
-          <Feather  onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
+          <Feather onPress={() => { navigation.navigate('BOB') }} name={'x'} size={50} color={'#A3A2BA'} />
         </View>
         <LinearGradient
           style={styles.LinearGradient2}
@@ -45,12 +45,23 @@ const RecommendProfessional = ({ navigation, user }) => {
             <Text style={styles.titleTextStyle}>We recommend {"\n"} you discuss this with {"\n"} a professional
             </Text>
             <View>
-            <RadioButton onPress={(e) => setEnabled(e)}  title="Yes please" title2="No, thank you... maybe later" style={{width:250}} style2={{width:250}}/>
+              <RadioButton onPress={(enabled) => {
+                if (enabled == null) {
+                  Alert.alert("Alert", "Please Select one!")
+                } else {
+                  if (enabled == 0) {
+                    Alert.alert("Coming soon")
+                  } else {
+                    navigation.navigate('BOB')
+                  }
+                }
+              }
+              } title="Yes please" title2="No, thank you... maybe later" style={{ width: 250 }} style2={{ width: 250 }} />
             </View>
             <View style={styles.buttonViewStyle}>
-              <NewmorphButton
+              {/* <NewmorphButton
                 backgroundColor="#C7D3E3"
-                imgStyle={{marginLeft:10}} 
+                imgStyle={{marginLeft:10}}
                 onPress={() => {
                   if(enabled == null) {
                     Alert.alert("Alert", "Please Select one!")
@@ -62,12 +73,12 @@ const RecommendProfessional = ({ navigation, user }) => {
                      }
                    }
                 }}
-              />
+              /> */}
             </View>
           </View>
         </LinearGradient>
       </LinearGradient>
-      </View>
+    </View>
   )
 }
 
@@ -85,7 +96,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: height/2,
+    borderRadius: height / 2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',
