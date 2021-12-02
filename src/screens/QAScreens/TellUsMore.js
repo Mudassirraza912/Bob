@@ -23,8 +23,8 @@ const TellUsMore = ({ navigation, user }) => {
 
   return (
     <View style={{
-      flex:1
-  }}>  
+      flex: 1
+    }}>
       <StatusBar barStyle="dark-content" backgroundColor={'#BFCCE0'} />
       <LinearGradient
         style={styles.LinearGradient1}
@@ -44,12 +44,26 @@ const TellUsMore = ({ navigation, user }) => {
             }}>
             <Text style={styles.titleTextStyle}>Tell us more</Text>
             <View>
-              <RadioButton onPress={(e) => setEnabled(e)} title="I would like to talk to someone" title2="Let's think together" style={{width:250}} style2={{width:250}}/>
+              <RadioButton onPress={(enabled) => {
+                if (enabled == null) {
+                  Alert.alert("Alert", "Please Select one!")
+                } else {
+                  if (enabled == 0) {
+                    Alert.alert("Coming soon")
+                  } else {
+                    navigation.navigate('RationalChallenge')
+                  }
+                }
+
+              }
+
+
+              } title="I would like to talk to someone" title2="Let's think together" style={{ width: 250 }} style2={{ width: 250 }} />
             </View>
             <View style={styles.buttonViewStyle}>
-              <NewmorphButton
+              {/* <NewmorphButton
                 backgroundColor="#C7D3E3"
-                imgStyle={{marginLeft:10}} 
+                imgStyle={{marginLeft:10}}
                 onPress={() => {
                   if(enabled == null) {
                    Alert.alert("Alert", "Please Select one!")
@@ -61,12 +75,12 @@ const TellUsMore = ({ navigation, user }) => {
                     }
                   }
                 }}
-              />
+              /> */}
             </View>
           </View>
         </LinearGradient>
       </LinearGradient>
-      </View>
+    </View>
   )
 }
 
@@ -84,7 +98,7 @@ const styles = StyleSheet.create({
   LinearGradient2: {
     width: '80%',
     height: height * 0.81,
-    borderRadius: height/2,
+    borderRadius: height / 2,
     backgroundColor: 'transparent',
     overflow: 'hidden',
     // alignItems: 'center',
